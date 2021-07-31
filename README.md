@@ -1,0 +1,2 @@
+# tomo_blogger_template
+Blogger用テンプレート
