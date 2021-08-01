@@ -41,6 +41,12 @@
             margin: 10px 0 0 0;
           }
 
+          article {
+            width: 840px;
+            height: 600px;
+            background-color: #ffffff;
+
+          }
           .container-wrapper {
             display: flex;
             flex-flow: row wrap;
@@ -67,8 +73,8 @@
       <!-- ■  header    　                         -->
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
       <header>
-        <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
-          <b:widget id='Header1' locked='false' title='{タイトル}(Header)' type='Header' version='1'>
+        <b:section class="header" id="header" maxwidgets="1" showaddelement="yes">
+          <b:widget id="Header1" locked="false" title="{タイトル}(Header)" type="Header" version="1">
             <b:widget-settings>
             </b:widget-settings>
          </b:widget>
@@ -83,9 +89,34 @@
         <!-- ■  main      　                         -->
         <!-- ■■■■■■■■■■■■■■■■■■■■ -->
         <main>
+          <b:section class="main" id="blog" showaddelement="yes">
+            <b:widget id="Blog1" locked="true" title="ブログの投稿" type="Blog" version="1">
+              <b:widget-settings>
+                <b:widget-setting name="showDateHeader">true</b:widget-setting>
+                <b:widget-setting name="style.textcolor">#000000</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id="main" var="top">
+                <div>最近の投稿</div>
+                <b:loop values="data:posts" var="post">
+                  <b:include data="post" name="post"/>
+                </b:loop>
+              </b:includable>
+
+              <!-- post パーツ -->
+              <b:includable id="post" var="post">
+                <article>
+                  <div><span itemprop="headline"><data:post.title/></span></div>
+                  <div class="thumbnail-top">
+                    <img class="" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
+                  </div>
+                </article>
+              </b:includable>
+
+            </b:widget>
+          </b:section>
         </main>
         <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-        <!-- ■  aside      　                         -->
+        <!-- ■  aside      　                        -->
         <!-- ■■■■■■■■■■■■■■■■■■■■ -->
         <aside>
           <div></div>
@@ -97,7 +128,7 @@
         <div class="contents-footer-item">XXXXX</div>
       </div>
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <!-- ■  footer    　                            -->
+      <!-- ■  footer    　                         -->
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
       <footer>XXXXXXXXXX</footer>
     </body>
