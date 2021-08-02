@@ -22,8 +22,6 @@
 
           main {
             width: 840px;
-            height: 1000px;
-            background-color: blue;
             margin: 10px;
           }
 
@@ -45,6 +43,7 @@
             width: 840px;
             height: 600px;
             background-color: #ffffff;
+            margin: 10px;
 
           }
           .container-wrapper {
@@ -63,8 +62,32 @@
           .contents-footer-item {
             width: 620px;
             height: 300px;
-            background-color: blue;
+            background-color: 414FA3;
           }
+
+          .top-main-title {
+            width: 840px;
+            height: 75px;
+            margin: 10px;
+            margin: 10px 10px 0 10px;
+            background-color: 414FA3;
+          }
+
+          .thumbnail-main-img {
+            object-fit: cover;
+          }
+
+          .profile-img {
+              border-radius: 50%;
+              float: none;
+              width: 120px;
+              height: 120px;
+          }
+
+          h1 {
+            font-size: 40px;
+          }
+
         ]]>
       </b:skin>
     </head>
@@ -76,6 +99,13 @@
         <b:section class="header" id="header" maxwidgets="1" showaddelement="yes">
           <b:widget id="Header1" locked="false" title="{タイトル}(Header)" type="Header" version="1">
             <b:widget-settings>
+              <b:widget-setting name='displayUrl'/>
+              <b:widget-setting name='displayHeight'>0</b:widget-setting>
+              <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+              <b:widget-setting name='useImage'>false</b:widget-setting>
+              <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+              <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+              <b:widget-setting name='displayWidth'>0</b:widget-setting>
             </b:widget-settings>
          </b:widget>
         </b:section>
@@ -83,7 +113,10 @@
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
       <!-- ■  nav    　                            -->
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <nav></nav>
+      <nav>
+        <b:section class='nav' id='nav' preferred='yes'>
+        </b:section>
+      </nav>
       <div class="container-wrapper">
         <!-- ■■■■■■■■■■■■■■■■■■■■ -->
         <!-- ■  main      　                         -->
@@ -92,11 +125,35 @@
           <b:section class="main" id="blog" showaddelement="yes">
             <b:widget id="Blog1" locked="true" title="ブログの投稿" type="Blog" version="1">
               <b:widget-settings>
-                <b:widget-setting name="showDateHeader">true</b:widget-setting>
-                <b:widget-setting name="style.textcolor">#000000</b:widget-setting>
+                <b:widget-setting name='commentLabel'>comments</b:widget-setting>
+                <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                <b:widget-setting name='authorLabel'>Posted by</b:widget-setting>
+                <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+                <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                <b:widget-setting name='timestampLabel'>on</b:widget-setting>
+                <b:widget-setting name='reactionsLabel'/>
+                <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                <b:widget-setting name='showLocation'>true</b:widget-setting>
+                <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+                <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+                <b:widget-setting name='postLocationLabel'>Location:</b:widget-setting>
+                <b:widget-setting name='showAuthor'>false</b:widget-setting>
+                <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                <b:widget-setting name='showLabels'>true</b:widget-setting>
+                <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
+                <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                <b:widget-setting name='showReactions'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id="main" var="top">
-                <div>最近の投稿</div>
+                <div class="top-main-title"><h2>最近の投稿</h2></div>
                 <b:loop values="data:posts" var="post">
                   <b:include data="post" name="post"/>
                 </b:loop>
@@ -107,7 +164,7 @@
                 <article>
                   <div><span itemprop="headline"><data:post.title/></span></div>
                   <div class="thumbnail-top">
-                    <img class="" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
+                    <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
                   </div>
                 </article>
               </b:includable>
@@ -119,17 +176,73 @@
         <!-- ■  aside      　                        -->
         <!-- ■■■■■■■■■■■■■■■■■■■■ -->
         <aside>
-          <div></div>
+          <div>
+             <b:section class='sidebar' id='sidebar' preferred='yes'>
+               <b:widget id='Profile1' locked='false' title='自己紹介' type='Profile'>
+                 <b:widget-settings>
+                   <b:widget-setting name='showaboutme'>true</b:widget-setting>
+                   <b:widget-setting name='showlocation'>true</b:widget-setting>
+                 </b:widget-settings>
+                 <b:includable id='main'>
+                   <b:if cond='data:title != &quot;&quot;'>
+                     <h2><data:title/></h2>
+                   </b:if>
+                   <div class='widget-content'>
+                     <b:if cond='data:team'> <!-- team blog profile -->
+                       <ul>
+                         <b:loop values='data:authors' var='i'>
+                           <li><a class='profile-name-link g-profile' expr:href='data:i.userUrl' expr:style='&quot;background-image: url(&quot; + data:i.profileLogo + &quot;);&quot;'><data:i.display-name/></a></li>
+                         </b:loop>
+                       </ul>
+                     <b:else/> <!-- normal blog profile -->
+                       <b:if cond='data:photo.url != &quot;&quot;'>
+                         <a expr:href='data:userUrl'><img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/></a>
+                       </b:if>
+                       <dl class='profile-datablock'>
+                         <dt class='profile-data'>
+                           <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
+                             <data:displayname/>
+                           </a>
+                           <b:if cond='data:hasgoogleprofile'>
+                             <br/>
+                             <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
+                           </b:if>
+                         </dt>
+                         <b:if cond='data:showlocation'>
+                          <dd class='profile-data'><data:location/></dd>
+                         </b:if>
+                         <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
+                       </dl>
+                       <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
+                     </b:if>
+                     <b:include name='quickedit'/>
+                   </div>
+                 </b:includable>
+               </b:widget>
+
+               <b:widget id='FeaturedPost1' locked='false' title='注目の投稿' type='FeaturedPost' version='1'>
+               </b:widget>
+             </b:section>
+          </div>
         </aside>
       </div>
 
       <div class="contents-footer">
-        <div class="contents-footer-item">XXXXX</div>
-        <div class="contents-footer-item">XXXXX</div>
+        <div class="contents-footer-item">
+          <b:section class='footerleft' id='footerleft' preferred='yes'>
+          </b:section>
+        </div>
+        <div class="contents-footer-item">
+           <b:section class='footerleft' id='footerRight' preferred='yes'>
+          </b:section></div>
       </div>
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
       <!-- ■  footer    　                         -->
       <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <footer>XXXXXXXXXX</footer>
+      <footer>
+        <b:section class='footer' id='footer' preferred='yes'>
+        </b:section>
+      </footer>
+
     </body>
   </html>
