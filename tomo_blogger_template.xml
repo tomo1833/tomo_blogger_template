@@ -46,6 +46,11 @@
             margin: 10px;
 
           }
+
+          h1 {
+            font-size: 40px;
+          }
+
           .container-wrapper {
             display: flex;
             flex-flow: row wrap;
@@ -68,9 +73,12 @@
           .top-main-title {
             width: 840px;
             height: 75px;
-            margin: 10px;
-            margin: 10px 10px 0 10px;
+             margin: 10px 10px 0 10px;
             background-color: 414FA3;
+          }
+
+          .top-main-title h2 {
+            color: #ffffff;
           }
 
           .thumbnail-main-img {
@@ -84,9 +92,19 @@
               height: 120px;
           }
 
-          h1 {
-            font-size: 40px;
+
+          .post-list-label {
+              width: 800px;
+              height: 40px;
           }
+
+          .post-list-title {
+              width: 800px;
+              height: 72px;
+              font-size: 24px;
+              text-align: center;
+          }
+
 
         ]]>
       </b:skin>
@@ -162,9 +180,13 @@
               <!-- post パーツ -->
               <b:includable id="post" var="post">
                 <article>
-                  <div><span itemprop="headline"><data:post.title/></span></div>
+                  <div class="post-list-label"></div> 
+                  <div class="post-list-title"><span itemprop="headline"><data:post.title/></span></div>
                   <div class="thumbnail-top">
                     <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
+                  </div>
+                  <div class='card-snippet'>
+                    <data:post.snippet/>
                   </div>
                 </article>
               </b:includable>
