@@ -28,7 +28,6 @@
           aside {
             width: 380px;
             height: 1000px;
-            background-color: blue;
             margin: 10px;
           }
 
@@ -115,7 +114,14 @@
             font-size: 24px;
             text-align: center;
           }
-
+          
+          .post-list-snippet {
+            width: 800px;
+            height: 72px;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+          }
           .thumbnail-top {
             width: 840px;
             text-align: center;
@@ -204,33 +210,34 @@
               <b:includable id='main'>
                 <!-- Only display title if it's non-empty -->
                 <b:if cond='data:title != &quot;&quot;'>
-                  <h2 class='title'><data:title/></h2>
+                  <div class="top-main-title">
+                    <h2 class='title'><data:title/></h2>
+                  </div>
                 </b:if>
                 <b:include name='content'/>
                 <b:include name='quickedit'/>
               </b:includable>
               <b:includable id='content'>
-                <div class='post-summary'>
+                <article>
+                  <div class="post-list-label"></div> 
                   <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
-                    <h3><a expr:href='data:postUrl'><data:postTitle/></a></h3>
-                  </b:if>
-                  <b:if cond='data:showSnippet and data:postSummary != &quot;&quot;'>
-                    <p>
-                      <data:postSummary/>
-                    </p>
+                    <div class="post-list-title"><span itemprop="headline"><data:postTitle/></span></div>
                   </b:if>
                   <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
-                    <img class='image' expr:src='data:postFirstImage'/>
+                    <div class="thumbnail-top">
+                      <img class="thumbnail-main-img" expr:src="data:postFirstImage" height="300" width="800" layout="responsive"/>
+                    </div>
                   </b:if>
-                </div>
-                <style type='text/css'>
-                  .image {
-                    width: 100%;
-                  }
-                </style>
+                  <div class='post-list-snippet'>
+                    <data:postSummary/>
+                  </div>
+                </article>
               </b:includable>
             </b:widget>
             <b:widget id="Blog1" locked="true" title="ブログの投稿" type="Blog" version="1">
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <!-- ブログ                                   -->
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <b:widget-settings>
                 <b:widget-setting name='commentLabel'>comments</b:widget-setting>
                 <b:widget-setting name='showShareButtons'>true</b:widget-setting>
@@ -273,7 +280,7 @@
                   <div class="thumbnail-top">
                     <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
                   </div>
-                  <div class='card-snippet'>
+                  <div class='post-list-snippet'>
                     <data:post.snippet/>
                   </div>
                 </article>
