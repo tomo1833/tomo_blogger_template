@@ -44,7 +44,6 @@
             height: 600px;
             background-color: #ffffff;
             margin: 10px;
-
           }
 
           h1 {
@@ -67,55 +66,74 @@
           .contents-footer-item {
             width: 620px;
             height: 300px;
-            background-color: 414FA3;
+            background-color: #414FA3;
           }
 
           .top-main-title {
+            display: flex;
+            align-items: center;
             width: 840px;
             height: 75px;
-             margin: 10px 10px 0 10px;
-            background-color: 414FA3;
+            margin: 10px 10px 0 10px;
+            background-color: #414FA3;
           }
 
           .top-main-title h2 {
+            padding-left: 20px;
             color: #ffffff;
+            font-size: 30px;
           }
 
           .thumbnail-main-img {
             object-fit: cover;
           }
 
-          .profile-img {
-              border-radius: 50%;
-              float: none;
-              width: 120px;
-              height: 120px;
+          .profile-title h2 {
+            color: #ffffff;
           }
 
+          .contents-profile-box {
+            width: 380px;
+            text-align: center;
+          }
+
+          .profile-img {
+            border-radius: 50%;
+            float: none;
+            width: 120px;
+            height: 120px;
+          }
 
           .post-list-label {
-              width: 800px;
-              height: 40px;
+            width: 800px;
+            height: 40px;
           }
 
           .post-list-title {
-              width: 800px;
-              height: 72px;
-              font-size: 24px;
-              text-align: center;
+            width: 800px;
+            height: 72px;
+            font-size: 24px;
+            text-align: center;
           }
 
+          .thumbnail-top {
+            width: 840px;
+            text-align: center;
+          }
 
         ]]>
       </b:skin>
     </head>
     <body>
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <!-- ■  header    　                         -->
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
+      <!-- ======================================== -->
+      <!-- =  header                             = -->
+      <!-- ======================================== -->
       <header>
         <b:section class="header" id="header" maxwidgets="1" showaddelement="yes">
           <b:widget id="Header1" locked="false" title="{タイトル}(Header)" type="Header" version="1">
+            <!-- = = = = = = = = = = = = = = = = = = = =  -->
+            <!-- ヘッダー                                 -->
+            <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <b:widget-settings>
               <b:widget-setting name='displayUrl'/>
               <b:widget-setting name='displayHeight'>0</b:widget-setting>
@@ -128,19 +146,90 @@
          </b:widget>
         </b:section>
       </header>
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <!-- ■  nav    　                            -->
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
+      <!-- ======================================== -->
+      <!-- =  nav    　                           = -->
+      <!-- ======================================== -->
       <nav>
         <b:section class='nav' id='nav' preferred='yes'>
+          <b:widget id='PageList1' locked='false' title='ページ' type='PageList'>
+            <!-- = = = = = = = = = = = = = = = = = = = =  -->
+            <!-- ページ（ナビ)                            -->
+            <!-- = = = = = = = = = = = = = = = = = = = =  -->
+            <b:widget-settings>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': 'http://blogstart40.blogspot.com/', 'title': '\u30db\u30fc\u30e0', 'position': 0}}]]></b:widget-setting>
+              <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+              <div class='widget-content'>
+                <b:if cond='data:mobile'>
+                  <select expr:id='data:widget.instanceId + &quot;_select&quot;'>
+                    <b:loop values='data:links' var='link'>
+                      <option expr:value='data:link.href'>
+                        <b:attr cond='data:link.isCurrentPage' name='selected' value='selected'/>
+                        <data:link.title/>
+                      </option>
+                    </b:loop>
+                  </select>
+                  <span class='pagelist-arrow'>&amp;#9660;</span>
+                <b:else/>
+                  <ul>
+                    <b:loop values='data:links' var='link'>
+                      <li>
+                        <b:class cond='data:link.isCurrentPage' name='selected'/>
+                        <a expr:href='data:link.href'>
+                          <data:link.title/>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:if>
+                <b:include name='quickedit'/>
+              </div>
+            </b:includable>
+          </b:widget>
         </b:section>
       </nav>
+
       <div class="container-wrapper">
-        <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-        <!-- ■  main      　                         -->
-        <!-- ■■■■■■■■■■■■■■■■■■■■ -->
+        <!-- ======================================== -->
+        <!-- =  main                                = -->
+        <!-- ======================================== -->
         <main>
           <b:section class="main" id="blog" showaddelement="yes">
+            <b:widget id='FeaturedPost1' locked='false' title='注目の投稿' type='FeaturedPost'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- 注目の投稿                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:includable id='main'>
+                <!-- Only display title if it's non-empty -->
+                <b:if cond='data:title != &quot;&quot;'>
+                  <h2 class='title'><data:title/></h2>
+                </b:if>
+                <b:include name='content'/>
+                <b:include name='quickedit'/>
+              </b:includable>
+              <b:includable id='content'>
+                <div class='post-summary'>
+                  <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
+                    <h3><a expr:href='data:postUrl'><data:postTitle/></a></h3>
+                  </b:if>
+                  <b:if cond='data:showSnippet and data:postSummary != &quot;&quot;'>
+                    <p>
+                      <data:postSummary/>
+                    </p>
+                  </b:if>
+                  <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
+                    <img class='image' expr:src='data:postFirstImage'/>
+                  </b:if>
+                </div>
+                <style type='text/css'>
+                  .image {
+                    width: 100%;
+                  }
+                </style>
+              </b:includable>
+            </b:widget>
             <b:widget id="Blog1" locked="true" title="ブログの投稿" type="Blog" version="1">
               <b:widget-settings>
                 <b:widget-setting name='commentLabel'>comments</b:widget-setting>
@@ -176,7 +265,6 @@
                   <b:include data="post" name="post"/>
                 </b:loop>
               </b:includable>
-
               <!-- post パーツ -->
               <b:includable id="post" var="post">
                 <article>
@@ -190,65 +278,120 @@
                   </div>
                 </article>
               </b:includable>
-
             </b:widget>
           </b:section>
         </main>
-        <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-        <!-- ■  aside      　                        -->
-        <!-- ■■■■■■■■■■■■■■■■■■■■ -->
+        <!-- ======================================== -->
+        <!-- =  aside      　                       = -->
+        <!-- ======================================== -->
         <aside>
           <div>
-             <b:section class='sidebar' id='sidebar' preferred='yes'>
-               <b:widget id='Profile1' locked='false' title='自己紹介' type='Profile'>
-                 <b:widget-settings>
-                   <b:widget-setting name='showaboutme'>true</b:widget-setting>
-                   <b:widget-setting name='showlocation'>true</b:widget-setting>
-                 </b:widget-settings>
-                 <b:includable id='main'>
-                   <b:if cond='data:title != &quot;&quot;'>
-                     <h2><data:title/></h2>
-                   </b:if>
-                   <div class='widget-content'>
-                     <b:if cond='data:team'> <!-- team blog profile -->
-                       <ul>
-                         <b:loop values='data:authors' var='i'>
-                           <li><a class='profile-name-link g-profile' expr:href='data:i.userUrl' expr:style='&quot;background-image: url(&quot; + data:i.profileLogo + &quot;);&quot;'><data:i.display-name/></a></li>
-                         </b:loop>
-                       </ul>
-                     <b:else/> <!-- normal blog profile -->
-                       <b:if cond='data:photo.url != &quot;&quot;'>
-                         <a expr:href='data:userUrl'><img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/></a>
-                       </b:if>
-                       <dl class='profile-datablock'>
-                         <dt class='profile-data'>
-                           <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
-                             <data:displayname/>
-                           </a>
-                           <b:if cond='data:hasgoogleprofile'>
-                             <br/>
-                             <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
-                           </b:if>
-                         </dt>
-                         <b:if cond='data:showlocation'>
-                          <dd class='profile-data'><data:location/></dd>
-                         </b:if>
-                         <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
-                       </dl>
-                       <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
-                     </b:if>
-                     <b:include name='quickedit'/>
-                   </div>
-                 </b:includable>
-               </b:widget>
-
-               <b:widget id='FeaturedPost1' locked='false' title='注目の投稿' type='FeaturedPost' version='1'>
-               </b:widget>
-             </b:section>
+            <b:section class='sidebar' id='sidebar' preferred='yes'>
+              <b:widget id='Profile1' locked='false' title='自己紹介' type='Profile'>
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <!-- 自己紹介                                 -->
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <b:widget-settings>
+                  <b:widget-setting name='showaboutme'>true</b:widget-setting>
+                  <b:widget-setting name='showlocation'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='profile-title'>
+                      <h2><data:title/></h2>
+                    </div>
+                  </b:if>
+                  <div class='widget-content'>
+                    <b:if cond='data:team'> <!-- team blog profile -->
+                      <ul>
+                        <b:loop values='data:authors' var='i'>
+                          <li><a class='profile-name-link g-profile' expr:href='data:i.userUrl' expr:style='&quot;background-image: url(&quot; + data:i.profileLogo + &quot;);&quot;'><data:i.display-name/></a></li>
+                        </b:loop>
+                      </ul>
+                      <b:else/> <!-- normal blog profile -->
+                        <b:if cond='data:photo.url != &quot;&quot;'>
+                          <div class="contents-profile-box">
+                            <a expr:href='data:userUrl'>
+                              <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/>
+                            </a>
+                          </div>
+                        </b:if>
+                        <dl class='profile-datablock'>
+                          <dt class='profile-data'>
+                            <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
+                              <data:displayname/>
+                            </a>
+                            <b:if cond='data:hasgoogleprofile'>
+                              <br/>
+                              <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
+                            </b:if>
+                          </dt>
+                          <b:if cond='data:showlocation'>
+                            <dd class='profile-data'><data:location/></dd>
+                          </b:if>
+                          <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
+                        </dl>
+                        <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
+                      </b:if>
+                    <b:include name='quickedit'/>
+                  </div>
+                </b:includable>
+              </b:widget>
+              <b:widget id='PopularPosts1' locked='false' title='人気の投稿' type='PopularPosts'>
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <!-- 人気の投稿                               -->
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <b:widget-settings>
+                  <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+                  <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                  <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                  <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+                  <div class='widget-content popular-posts'>
+                    <ul>
+                      <b:loop values='data:posts' var='post'>
+                        <li>
+                          <b:if cond='!data:showThumbnails'>
+                            <b:if cond='!data:showSnippets'>
+                              <!-- (1) No snippet/thumbnail -->
+                              <a expr:href='data:post.href'><data:post.title/></a>
+                            <b:else/>
+                              <!-- (2) Show only snippets -->
+                              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                              <div class='item-snippet'><data:post.snippet/></div>
+                            </b:if>
+                          <b:else/>
+                            <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
+                            <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
+                              <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
+                                <div class='item-thumbnail'>
+                                  <a expr:href='data:post.href' target='_blank'>
+                                    <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
+                                      <img alt='' border='0' expr:src='data:image'/>
+                                    </b:with>
+                                 </a>
+                                </div>
+                              </b:if>
+                              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                              <b:if cond='data:showSnippets'>
+                                <div class='item-snippet'><data:post.snippet/></div>
+                              </b:if>
+                            </div>
+                            <div style='clear: both;'/>
+                          </b:if>
+                        </li>
+                      </b:loop>
+                    </ul>
+                    <b:include name='quickedit'/>
+                  </div>
+                </b:includable>
+              </b:widget>
+            </b:section>
           </div>
         </aside>
       </div>
-
       <div class="contents-footer">
         <div class="contents-footer-item">
           <b:section class='footerleft' id='footerleft' preferred='yes'>
@@ -256,11 +399,12 @@
         </div>
         <div class="contents-footer-item">
            <b:section class='footerleft' id='footerRight' preferred='yes'>
-          </b:section></div>
+          </b:section>
+        </div>
       </div>
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
-      <!-- ■  footer    　                         -->
-      <!-- ■■■■■■■■■■■■■■■■■■■■ -->
+        <!-- ======================================== -->
+        <!-- =  footer    　                        = -->
+        <!-- ======================================== -->
       <footer>
         <b:section class='footer' id='footer' preferred='yes'>
           <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true'>
