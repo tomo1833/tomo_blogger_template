@@ -22,13 +22,13 @@
 
           main {
             width: 840px;
-            margin: 10px;
+            margin: 0 10px 0 10px;
           }
 
           aside {
             width: 380px;
             height: 1000px;
-            margin: 10px;
+            margin: 10px 20px 10px 20px;
           }
 
           footer {
@@ -53,6 +53,7 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
+            margin: 10px;
           }
 
           .contents-footer {
@@ -87,13 +88,37 @@
             object-fit: cover;
           }
 
+          .profile-title {
+            width: 380px;
+            height: 55px;
+            background-color: #414FA3;
+            display: flex;
+            align-items: center;
+            margin: 0 10px 0 0;
+          }
+
           .profile-title h2 {
+            color: #ffffff;
+            margin: 0 20px 0 20px;
+          }
+
+          .popular-title {
+            width: 380px;
+            height: 55px;
+            background-color: #414FA3;
+            display: flex;
+            align-items: center;
+          }
+
+          .popular-title h2 {
             color: #ffffff;
           }
 
           .contents-profile-box {
             width: 380px;
             text-align: center;
+            position: relative;
+            top: -20px;
           }
 
           .profile-img {
@@ -101,6 +126,7 @@
             float: none;
             width: 120px;
             height: 120px;
+            top: -50px;
           }
 
           .post-list-label {
@@ -122,9 +148,14 @@
             text-align: center;
             padding: 20px;
           }
+
           .thumbnail-top {
             width: 840px;
             text-align: center;
+          }
+
+          .widget-conent-profile {
+            background-color: #ffffff;
           }
 
         ]]>
@@ -149,7 +180,7 @@
               <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
               <b:widget-setting name='displayWidth'>0</b:widget-setting>
             </b:widget-settings>
-         </b:widget>
+          </b:widget>
         </b:section>
       </header>
       <!-- ======================================== -->
@@ -308,8 +339,9 @@
                       <h2><data:title/></h2>
                     </div>
                   </b:if>
-                  <div class='widget-content'>
-                    <b:if cond='data:team'> <!-- team blog profile -->
+                  <div class='widget-content widget-conent-profile'>
+                    <b:if cond='data:team'>
+                      <!-- team blog profile -->
                       <ul>
                         <b:loop values='data:authors' var='i'>
                           <li><a class='profile-name-link g-profile' expr:href='data:i.userUrl' expr:style='&quot;background-image: url(&quot; + data:i.profileLogo + &quot;);&quot;'><data:i.display-name/></a></li>
@@ -355,7 +387,11 @@
                   <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='popular-title'>
+                      <h2><data:title/></h2>
+                    </div>
+                  </b:if>
                   <div class='widget-content popular-posts'>
                     <ul>
                       <b:loop values='data:posts' var='post'>
@@ -378,7 +414,7 @@
                                     <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
                                       <img alt='' border='0' expr:src='data:image'/>
                                     </b:with>
-                                 </a>
+                                  </a>
                                 </div>
                               </b:if>
                               <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
@@ -405,7 +441,7 @@
           </b:section>
         </div>
         <div class="contents-footer-item">
-           <b:section class='footerleft' id='footerRight' preferred='yes'>
+          <b:section class='footerleft' id='footerRight' preferred='yes'>
           </b:section>
         </div>
       </div>
