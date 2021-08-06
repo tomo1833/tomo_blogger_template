@@ -22,7 +22,6 @@
 
           main {
             width: 840px;
-            margin: 0 10px 0 10px;
           }
 
           aside {
@@ -42,7 +41,6 @@
             width: 840px;
             height: 600px;
             background-color: #ffffff;
-            margin: 10px;
           }
 
           h1 {
@@ -53,7 +51,7 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-            margin: 10px;
+            margin: 20px 0 20px 0;
           }
 
           .contents-footer {
@@ -69,13 +67,20 @@
             background-color: #414FA3;
           }
 
+          .article-featured {
+            margin: 0 0 20px 0;
+          }
+
+          .article-blog {
+            margin: 0 0 20px 0;
+          }
+
           .top-main-title {
-            display: flex;
             align-items: center;
-            width: 840px;
-            height: 75px;
-            margin: 10px 10px 0 10px;
             background-color: #414FA3;
+            display: flex;
+            height: 75px;
+            width: 840px;
           }
 
           .top-main-title h2 {
@@ -158,6 +163,41 @@
             background-color: #ffffff;
           }
 
+          .contents-profile-card {
+            margin: 0 20px 0 20px;
+          }
+
+          .widget-pagelist-ul {
+            display: flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1280px;
+          }
+
+          .widget-pagelist-ul li {
+            color: #ffffff;
+            list-style: none;
+            height: 75px;
+          }
+
+          .widget-title-box-profile,
+          .widget-title-box-popular,
+          .widget-title-box-label {
+            align-items: center;
+            background-color: #414FA3;
+            display: flex;
+            height: 55px;
+            width: 380px;
+          }
+
+          .widget-title-box-profile h2,
+          .widget-title-box-popular h2,
+          .widget-title-box-label h2 {
+            color: #ffffff;
+            margin: 0 20px 0 20px;
+          }
+
         ]]>
       </b:skin>
     </head>
@@ -188,29 +228,17 @@
       <!-- ======================================== -->
       <nav>
         <b:section class='nav' id='nav' preferred='yes'>
-          <b:widget id='PageList1' locked='false' title='ページ' type='PageList'>
+          <b:widget id='PageList1' locked='false' title='' type='PageList'>
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <!-- ページ（ナビ)                            -->
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': 'http://blogstart40.blogspot.com/', 'title': '\u30db\u30fc\u30e0', 'position': 0}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
               <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
               <div class='widget-content'>
-                <b:if cond='data:mobile'>
-                  <select expr:id='data:widget.instanceId + &quot;_select&quot;'>
-                    <b:loop values='data:links' var='link'>
-                      <option expr:value='data:link.href'>
-                        <b:attr cond='data:link.isCurrentPage' name='selected' value='selected'/>
-                        <data:link.title/>
-                      </option>
-                    </b:loop>
-                  </select>
-                  <span class='pagelist-arrow'>&amp;#9660;</span>
-                <b:else/>
-                  <ul>
+                  <ul class="widget-pagelist-ul">
                     <b:loop values='data:links' var='link'>
                       <li>
                         <b:class cond='data:link.isCurrentPage' name='selected'/>
@@ -220,7 +248,7 @@
                       </li>
                     </b:loop>
                   </ul>
-                </b:if>
+
                 <b:include name='quickedit'/>
               </div>
             </b:includable>
@@ -249,7 +277,7 @@
                 <b:include name='quickedit'/>
               </b:includable>
               <b:includable id='content'>
-                <article>
+                <article class="article-featured">
                   <div class="post-list-label"></div> 
                   <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
                     <div class="post-list-title"><span itemprop="headline"><data:postTitle/></span></div>
@@ -305,7 +333,7 @@
               </b:includable>
               <!-- post パーツ -->
               <b:includable id="post" var="post">
-                <article>
+                <article class="article-blog">
                   <div class="post-list-label"></div> 
                   <div class="post-list-title"><span itemprop="headline"><data:post.title/></span></div>
                   <div class="thumbnail-top">
@@ -335,7 +363,7 @@
                 </b:widget-settings>
                 <b:includable id='main'>
                   <b:if cond='data:title != &quot;&quot;'>
-                    <div class='profile-title'>
+                    <div class='widget-title-box-profile'>
                       <h2><data:title/></h2>
                     </div>
                   </b:if>
@@ -355,21 +383,23 @@
                             </a>
                           </div>
                         </b:if>
-                        <dl class='profile-datablock'>
-                          <dt class='profile-data'>
-                            <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
-                              <data:displayname/>
-                            </a>
-                            <b:if cond='data:hasgoogleprofile'>
-                              <br/>
-                              <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
+                        <div class="contents-profile-card">
+                          <dl class='profile-datablock'>
+                            <dt class='profile-data'>
+                              <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
+                                <data:displayname/>
+                              </a>
+                              <b:if cond='data:hasgoogleprofile'>
+                                <br/>
+                                <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
+                              </b:if>
+                            </dt>
+                            <b:if cond='data:showlocation'>
+                              <dd class='profile-data'><data:location/></dd>
                             </b:if>
-                          </dt>
-                          <b:if cond='data:showlocation'>
-                            <dd class='profile-data'><data:location/></dd>
-                          </b:if>
-                          <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
-                        </dl>
+                            <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
+                          </dl>
+                        </div>
                         <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
                       </b:if>
                     <b:include name='quickedit'/>
@@ -431,6 +461,59 @@
                   </div>
                 </b:includable>
               </b:widget>
+              <b:widget id='Label1' locked='false' title='ラベル' type='Label'>
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <!-- ラベル                                   -->
+                <!-- = = = = = = = = = = = = = = = = = = = =  -->
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                  <b:widget-setting name='display'>LIST</b:widget-setting>
+                  <b:widget-setting name='selectedLabelsList'/>
+                  <b:widget-setting name='showType'>ALL</b:widget-setting>
+                  <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                <b:if cond='data:title != &quot;&quot;'>
+                  <div class="widget-title-box-label">
+                    <h2><data:title/></h2>
+                  </div>
+                </b:if>
+  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+      <ul>
+        <b:loop values='data:labels' var='label'>
+          <li>
+            <b:if cond='data:blog.url == data:label.url'>
+              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+            <b:else/>
+              <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+            </b:if>
+            <b:if cond='data:showFreqNumbers'>
+              <span dir='ltr'>(<data:label.count/>)</span>
+            </b:if>
+          </li>
+        </b:loop>
+      </ul>
+    <b:else/>
+      <b:loop values='data:labels' var='label'>
+        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </span>
+      </b:loop>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+              </b:widget>
+
+
             </b:section>
           </div>
         </aside>
