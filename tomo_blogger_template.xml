@@ -120,11 +120,39 @@
             height: 75px;
             width: 840px;
           }
+
           .featuredpost-title-wrapper h2 {
             color: #ffffff;
             font-size: 30px;
             padding-left: 20px;
           }
+
+          .article-featured {
+            width: 840px;
+            height: 600px;
+            background-color: #ffffff;
+          }
+
+          .featuredpost-label-wrapper {
+            height: 40px;
+          }
+
+          .featuredpost-post-title-wrapper {
+            font-size: 24px;
+            height: 75px;
+            text-align: center;
+            width: 800px;
+          }
+
+          .featuredpost-post-date-wrapper {
+            height: 20px;
+          }
+
+          .featuredpost-thumbnail-wrapper {
+          }
+
+
+
 
           .popular-title {
             width: 380px;
@@ -138,16 +166,9 @@
             color: #ffffff;
           }
 
-
-
-          .article-featured {
-            margin: 0 0 20px 0;
-          }
-
           .article-blog {
             margin: 0 0 20px 0;
           }
-
 
           .top-main-title {
             align-items: center;
@@ -245,7 +266,6 @@
             color: #ffffff;
             margin: 0 20px 0 20px;
           }
-
         
       ]]></b:skin>
     </head>
@@ -340,16 +360,19 @@
               </b:includable>
               <b:includable id='content'>
                 <article class='article-featured'>
-                  <div class='post-list-label'/> 
+                  <div class='featuredpost-label-wrapper'></div>
                   <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
-                    <div class='post-list-title'><span itemprop='headline'><data:postTitle/></span></div>
+                    <div class='featuredpost-post-title-wrapper'><span itemprop='headline'><data:postTitle/></span></div>
                   </b:if>
+                    <div class='featuredpost-post-date-wrapper'></div>
                   <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
-                    <div class='thumbnail-top'>
-                      <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
+                    <div class='featuredpost-thumbnail-wrapper'>
+                      <div class='thumbnail-top'>
+                        <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
+                      </div>
                     </div>
                   </b:if>
-                  <div class='post-list-snippet'>
+                  <div class='featuredpost-snippet-wrapper'>
                     <data:postSummary/>
                   </div>
                 </article>
