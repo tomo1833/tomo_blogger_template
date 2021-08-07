@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-  <html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
     <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
       <!-- CSS 設定 -->
-      <b:skin>
-        <![CDATA[
+      <b:skin><![CDATA[
+        
           body {
             background-color: #F2F2F2;
           }
@@ -15,9 +15,9 @@
           }
 
           nav {
-            height: 75px;
             background-color: #414FA3;
-            margin: 10px;
+            height: 75px;
+            margin: 0 10px 10px 10px;
           }
 
           main {
@@ -198,8 +198,8 @@
             margin: 0 20px 0 20px;
           }
 
-        ]]>
-      </b:skin>
+        
+      ]]></b:skin>
     </head>
     <body>
       <!-- ======================================== -->
