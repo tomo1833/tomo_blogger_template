@@ -168,7 +168,7 @@
             width: 840px;
           }
 
-          .articled-featured-inner {
+          .article-featured-inner {
             height: 600px;
             padding: 0 20px 0 20px;
             width: 800px;
@@ -229,7 +229,7 @@
             width: 840px;
           }
 
-          .articled-blog-inner {
+          .article-blog-inner {
             height: 600px;
             padding: 0 20px 0 20px;
             width: 800px;
@@ -279,24 +279,6 @@
             text-align: center;
           }
           
-          .popular-title {
-            width: 380px;
-            height: 55px;
-            background-color: #414FA3;
-            display: flex;
-            align-items: center;
-          }
-
-          .popular-title h2 {
-            color: #ffffff;
-          }
-
-          .top-main-title h2 {
-            padding-left: 20px;
-            color: #ffffff;
-            font-size: 30px;
-          }
-
           /** ******************** */
           /** profile              */
           /** ******************** */
@@ -335,30 +317,105 @@
 
           .profile-message-wrapper {
             width: 340px;
-            margin: 0 20px 0 20px;
+            margin: 0 20px 10px 20px;
           }
 
           .profile-link-wrapper {
             width: 340px;
+            margin: 0 20px 10px 20px;
+            padding: 0 0 10px 0;
+          }
+
+          /** ******************** */
+          /** popular              */
+          /** ******************** */
+          .popular-inner {
+            margin: 20px 0 0 0;
+          }
+          .popular-title-wrapper {
+            width: 380px;
+            height: 55px;
+            background-color: #414FA3;
+            display: flex;
+            align-items: center;
+            margin: 0 10px 0 0;
+          }
+
+          .popular-title-wrapper h2 {
+            color: #ffffff;
             margin: 0 20px 0 20px;
           }
 
-
-          .widget-title-box-popular,
-          .widget-title-box-label {
-            align-items: center;
-            background-color: #414FA3;
-            display: flex;
-            height: 55px;
+          .article-popular {
+            background-color: #ffffff;
+            height: 365px;
+            margin: 0 0 20px 0;
             width: 380px;
           }
 
-          .widget-title-box-popular h2,
-          .widget-title-box-label h2 {
+          .popular-post-title-wrapper {
+            font-size: 18px;
+            height: 75px;
+            text-align: center;
+            margin: 10px;
+          }
+
+          .popular-img-wrapper {
+            margin: 20px;
+          }
+
+          .popular-thumbnail-img {
+            border: 1px solid #707070;
+            object-fit: cover;
+          }
+
+          .popular-button-wrapper {
+            height: 40px;
+            width: 100%;
+            text-align: center;
+          }
+
+          /** ******************** */
+          /** label                */
+          /** ******************** */
+          .label-title-wrapper {
+            width: 380px;
+            height: 55px;
+            background-color: #414FA3;
+            display: flex;
+            align-items: center;
+            margin: 0 10px 0 0;
+          }
+
+          .label-title-wrapper h2 {
             color: #ffffff;
             margin: 0 20px 0 20px;
           }
         
+          .list-label-widget-content {
+            width: 380px;
+            background-color: #ffffff;
+          }
+
+          .label-ul {
+            margin-block: 0;
+            list-style: none;
+            padding-inline: 0;
+            width: 100%;
+          }
+
+          .label-label {
+            border: 1px solid #707070;
+            border-radius: 0;
+            background: #ffffff;
+            display: inline-block;
+            font-size: 14px;
+            height: 25px;
+            line-height: 25px;
+            margin: 5px;
+            padding: 0 10px;
+            text-align: center;
+          }
       ]]></b:skin>
     </head>
     <body>
@@ -452,7 +509,7 @@
               </b:includable>
               <b:includable id='content'>
                 <article class='article-featured'>
-                  <div class='articled-featured-inner'>
+                  <div class='article-featured-inner'>
                     <div class='featured-label-wrapper'></div>
                     <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
                       <div class='featured-post-title-wrapper'><span itemprop='headline'><data:postTitle/></span></div>
@@ -461,7 +518,7 @@
                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
                       <div class='featured-thumbnail-wrapper'>
                         <div class='thumbnail-top'>
-                          <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
+                          <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' width='800' layout='responsive'/>
                         </div>
                       </div>
                     </b:if>
@@ -518,7 +575,7 @@
               <!-- post パーツ -->
               <b:includable id="post" var="post">
                 <article class="article-blog">
-                  <div class='articled-featured-inner'>
+                  <div class='article-featured-inner'>
                     <div class='blog-label-wrapper'>
                       <b:loop values='data:post.labels' var='label'>
                         <span class='blog-label'><data:label.name /></span>
@@ -530,7 +587,7 @@
                     </div>
                     <div class='blog-thumbnail-wrapper'>
                        <div class="thumbnail-top">
-                        <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height="300" width="800" layout="responsive"/>
+                        <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height='300' width='800' layout='responsive'/>
                       </div>
                     </div>
                     <div class='blog-snippet-wrapper'>
@@ -598,47 +655,27 @@
                   <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <b:if cond='data:title != &quot;&quot;'>
-                    <div class='popular-title'>
-                      <h2><data:title/></h2>
-                    </div>
-                  </b:if>
-                  <div class='widget-content popular-posts'>
-                    <ul>
+                  <div class='popular-inner'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <div class='popular-title-wrapper'>
+                        <h2><data:title/></h2>
+                      </div>
+                    </b:if>
+                    <div class='widget-content popular-posts'>
                       <b:loop values='data:posts' var='post'>
-                        <li>
-                          <b:if cond='!data:showThumbnails'>
-                            <b:if cond='!data:showSnippets'>
-                              <!-- (1) No snippet/thumbnail -->
-                              <a expr:href='data:post.href'><data:post.title/></a>
-                            <b:else/>
-                              <!-- (2) Show only snippets -->
-                              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-                              <div class='item-snippet'><data:post.snippet/></div>
-                            </b:if>
-                          <b:else/>
-                            <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
-                            <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
-                              <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
-                                <div class='item-thumbnail'>
-                                  <a expr:href='data:post.href' target='_blank'>
-                                    <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
-                                      <img alt='' border='0' expr:src='data:image'/>
-                                    </b:with>
-                                  </a>
-                                </div>
-                              </b:if>
-                              <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-                              <b:if cond='data:showSnippets'>
-                                <div class='item-snippet'><data:post.snippet/></div>
-                              </b:if>
+                        <article class='article-popular'>
+                          <div class='popular-post-title-wrapper'><data:post.title/></div>
+                          <div class='popular-img-wrapper'>
+                            <div class='popular-thumbnail'>
+                              <img class='popular-thumbnail-img' alt='' border='0' expr:src='data:post.featuredImage' height='190' width='340' layout='responsive'/>
                             </div>
-                            <div style='clear: both;'/>
-                          </b:if>
-                        </li>
+                          </div>
+                          <div class='popular-button-wrapper'>
+                            <a expr:href='data:post.href' class='btn btn-border'>もっとみる</a>
+                          </div>
+                        </article>
                       </b:loop>
-                    </ul>
-                    <b:include name='quickedit'/>
+                    </div>
                   </div>
                 </b:includable>
               </b:widget>
@@ -654,44 +691,30 @@
                   <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                <b:if cond='data:title != &quot;&quot;'>
-                  <div class='widget-title-box-label'>
-                    <h2><data:title/></h2>
+                  <div class='label-inner'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <div class='label-title-wrapper'>
+                        <h2><data:title/></h2>
+                      </div>
+                    </b:if>
+                    <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+                      <ul class='label-ul'>
+                        <b:loop values='data:labels' var='label'>
+                          <li>
+                            <b:if cond='data:blog.url == data:label.url'>
+                              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+                             <b:else/>
+                              <a class='label-label' expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+                            </b:if>
+                            <b:if cond='data:showFreqNumbers'>
+                             <span dir='ltr'>(<data:label.count/>)</span>
+                            </b:if>
+                          </li>
+                        </b:loop>
+                      </ul>
+                    </div>
                   </div>
-                </b:if>
-  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
-    <b:if cond='data:display == &quot;list&quot;'>
-      <ul>
-        <b:loop values='data:labels' var='label'>
-          <li>
-            <b:if cond='data:blog.url == data:label.url'>
-              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-            <b:else/>
-              <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-            </b:if>
-            <b:if cond='data:showFreqNumbers'>
-              <span dir='ltr'>(<data:label.count/>)</span>
-            </b:if>
-          </li>
-        </b:loop>
-      </ul>
-    <b:else/>
-      <b:loop values='data:labels' var='label'>
-        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
-          <b:if cond='data:blog.url == data:label.url'>
-            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-          <b:else/>
-            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-          </b:if>
-          <b:if cond='data:showFreqNumbers'>
-            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
-          </b:if>
-        </span>
-      </b:loop>
-    </b:if>
-    <b:include name='quickedit'/>
-  </div>
-</b:includable>
+                </b:includable>
               </b:widget>
             </b:section>
           </div>
