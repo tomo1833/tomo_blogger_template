@@ -34,7 +34,7 @@
           }
 
           aside {
-            margin: 10px 20px 10px 20px;
+            margin: 0 0 0px 20px;
             width: 380px;
           }
 
@@ -69,6 +69,40 @@
           }
 
           /** ******************** */
+          /** common class         */
+          /** ******************** */
+          .thumbnail-main-img {
+            border: 1px solid #707070;
+            object-fit: cover;
+          }
+
+          .btn {
+            display: inline-block;
+            height: 40px;
+            width: 160px;
+            font-size: 16px;
+            line-height: 40px;
+            text-decoration: none;
+          }
+
+          .btn:link,
+          .btn:visited {
+            color: #707070;
+          }
+
+          .btn-border {
+            background: #ffffff;
+            border: 1px solid #707070;
+            border-radius: 0;
+            text-align: center;
+          }
+
+          .thumbnail-top {
+            width: 800px;
+            text-align: center;
+          }
+
+          /** ******************** */
           /** header               */
           /** ******************** */
           #header-inner {
@@ -76,6 +110,7 @@
           }
 
           .title-wrapper h1 {
+            color: #707070;
             font-size: 40px;
             line-height: 75px;
             margin-block: 0;
@@ -202,6 +237,21 @@
 
           .blog-label-wrapper {
             height: 40px;
+            width: 100%;
+            text-align: center;
+          }
+
+          .blog-label {
+            border: 1px solid #707070;
+            border-radius: 0;
+            background: #ffffff;
+            display: inline-block;
+            font-size: 14px;
+            height: 25px;
+            line-height: 25px;
+            margin: 5px;
+            padding: 0 10px;
+            text-align: center;
           }
 
           .blog-post-title-wrapper {
@@ -229,27 +279,6 @@
             text-align: center;
           }
           
-          .btn {
-            display: inline-block;
-            height: 40px;
-            width: 160px;
-            font-size: 16px;
-            line-height: 40px;
-            text-decoration: none;
-          }
-
-          .btn:link,
-          .btn:visited {
-            color: #707070;
-          }
-
-          .btn-border {
-            border: 1px solid #707070;
-            border-radius: 0;
-            background: #ffffff;
-            text-align: center;
-          }
-
           .popular-title {
             width: 380px;
             height: 55px;
@@ -268,11 +297,10 @@
             font-size: 30px;
           }
 
-          .thumbnail-main-img {
-            object-fit: cover;
-          }
-
-          .profile-title {
+          /** ******************** */
+          /** profile              */
+          /** ******************** */
+          .profile-title-wrapper {
             width: 380px;
             height: 55px;
             background-color: #414FA3;
@@ -281,46 +309,41 @@
             margin: 0 10px 0 0;
           }
 
-          .profile-title h2 {
+          .profile-title-wrapper h2 {
             color: #ffffff;
             margin: 0 20px 0 20px;
-          }
-
-          .contents-profile-box {
-            width: 380px;
-            text-align: center;
-            position: relative;
-            top: -20px;
-          }
-
-          .profile-img {
-            border-radius: 50%;
-            float: none;
-            width: 120px;
-            height: 120px;
-            top: -50px;
-          }
-
-          .post-list-label {
-            width: 800px;
-            height: 40px;
-          }
-
-
-          .thumbnail-top {
-            width: 800px;
-            text-align: center;
           }
 
           .widget-conent-profile {
             background-color: #ffffff;
           }
 
-          .contents-profile-card {
+          .profile-image-wrapper {
+            position: relative;
+            text-align: center;
+            top: -20px;
+            width: 380px;
+          }
+
+          .profile-img {
+            border-radius: 50%;
+            float: none;
+            height: 120px;
+            top: -50px;
+            width: 120px;
+          }
+
+          .profile-message-wrapper {
+            width: 340px;
             margin: 0 20px 0 20px;
           }
 
-          .widget-title-box-profile,
+          .profile-link-wrapper {
+            width: 340px;
+            margin: 0 20px 0 20px;
+          }
+
+
           .widget-title-box-popular,
           .widget-title-box-label {
             align-items: center;
@@ -330,7 +353,6 @@
             width: 380px;
           }
 
-          .widget-title-box-profile h2,
           .widget-title-box-popular h2,
           .widget-title-box-label h2 {
             color: #ffffff;
@@ -497,11 +519,14 @@
               <b:includable id="post" var="post">
                 <article class="article-blog">
                   <div class='articled-featured-inner'>
-                    <div class='blog-label-wrapper'><data:post.labels /></div>
+                    <div class='blog-label-wrapper'>
+                      <b:loop values='data:post.labels' var='label'>
+                        <span class='blog-label'><data:label.name /></span>
+                      </b:loop>
+                    </div>
                     <div class="blog-post-title-wrapper"><span itemprop="headline"><data:post.title/></span></div>
                     <div class='blog-date-wrapper'>
                         <span class='published' expr:content='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></span>
-
                     </div>
                     <div class='blog-thumbnail-wrapper'>
                        <div class="thumbnail-top">
@@ -535,47 +560,30 @@
                   <b:widget-setting name='showlocation'>true</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <b:if cond='data:title != &quot;&quot;'>
-                    <div class='widget-title-box-profile'>
-                      <h2><data:title/></h2>
-                    </div>
-                  </b:if>
-                  <div class='widget-content widget-conent-profile'>
-                    <b:if cond='data:team'>
-                      <!-- team blog profile -->
-                      <ul>
-                        <b:loop values='data:authors' var='i'>
-                          <li><a class='profile-name-link g-profile' expr:href='data:i.userUrl' expr:style='&quot;background-image: url(&quot; + data:i.profileLogo + &quot;);&quot;'><data:i.display-name/></a></li>
-                        </b:loop>
-                      </ul>
-                      <b:else/> <!-- normal blog profile -->
-                        <b:if cond='data:photo.url != &quot;&quot;'>
-                          <div class='contents-profile-box'>
-                            <a expr:href='data:userUrl'>
-                              <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/>
-                            </a>
-                          </div>
-                        </b:if>
-                        <div class='contents-profile-card'>
+                  <div class='profile-inner'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <div class='profile-title-wrapper'>
+                        <h2><data:title/></h2>
+                      </div>
+                    </b:if>
+                    <div class='widget-content widget-conent-profile'>
+                      <b:if cond='data:photo.url != &quot;&quot;'>
+                        <div class='profile-image-wrapper'>
+                          <a expr:href='data:userUrl'>
+                            <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/>
+                          </a>
+                        </div>
+                        <div class='profile-message-wrapper'>
                           <dl class='profile-datablock'>
-                            <dt class='profile-data'>
-                              <a class='profile-name-link g-profile' expr:href='data:userUrl' expr:style='&quot;background-image: url(&quot; + data:profileLogo + &quot;);&quot;' rel='author'>
-                                <data:displayname/>
-                              </a>
-                              <b:if cond='data:hasgoogleprofile'>
-                                <br/>
-                                <div class='g-follow' data-annotation='bubble' data-height='20' expr:data-href='data:userUrl'/>
-                              </b:if>
-                            </dt>
-                            <b:if cond='data:showlocation'>
-                              <dd class='profile-data'><data:location/></dd>
-                            </b:if>
+                            <dt class='profile-data'></dt>
                             <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
                           </dl>
                         </div>
-                        <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
+                        <div class='profile-link-wrapper'>
+                          <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
+                        </div>
                       </b:if>
-                    <b:include name='quickedit'/>
+                    </div>
                   </div>
                 </b:includable>
               </b:widget>
