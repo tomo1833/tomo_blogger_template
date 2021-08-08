@@ -4,6 +4,44 @@
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
+            /** ******************** */
+            /** reset css           */
+            /** ******************** */
+
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+          }
+          article, aside, details, figcaption, figure, 
+          footer, header, hgroup, menu, nav, section {
+            display: block;
+          }
+          body {
+          line-height: 1;
+          }
+          ol, ul {
+            list-style: none;
+          }
+          blockquote, q {
+            quotes: none;
+          }
+          blockquote:before, blockquote:after, q:before, q:after {
+            content: '';
+            content: none;
+          }
+          table {
+            border-collapse: collapse;
+            border-spacing: 0;
+          }
 
           /** ******************** */
           /** common tag           */
@@ -64,8 +102,8 @@
 
           .contents-footer-item {
             width: 620px;
-            height: 300px;
             background-color: #414FA3;
+            text-align: center;
           }
 
           /** ******************** */
@@ -357,7 +395,8 @@
             font-size: 18px;
             height: 75px;
             text-align: center;
-            margin: 10px;
+            margin: 0 10px 0 10px;
+            padding: 5px 0 0 0;
           }
 
           .popular-img-wrapper {
@@ -392,30 +431,34 @@
             margin: 0 20px 0 20px;
           }
         
-          .list-label-widget-content {
+          .label-label-wrapper {
             width: 380px;
             background-color: #ffffff;
-          }
-
-          .label-ul {
-            margin-block: 0;
-            list-style: none;
-            padding-inline: 0;
-            width: 100%;
+            padding: 10px 0 10px 0;
           }
 
           .label-label {
             border: 1px solid #707070;
             border-radius: 0;
             background: #ffffff;
-            display: inline-block;
             font-size: 14px;
             height: 25px;
             line-height: 25px;
-            margin: 5px;
+            margin: 10px 20px 10px 20px ;
             padding: 0 10px;
             text-align: center;
+            display: table;
           }
+
+          .label-label a {
+            text-decoration: none;
+          }
+
+          .label-label a:link,
+          .label-label a:visited {
+            color: #000000;
+          }
+
       ]]></b:skin>
     </head>
     <body>
@@ -697,22 +740,14 @@
                         <h2><data:title/></h2>
                       </div>
                     </b:if>
-                    <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
-                      <ul class='label-ul'>
-                        <b:loop values='data:labels' var='label'>
-                          <li>
-                            <b:if cond='data:blog.url == data:label.url'>
-                              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
-                             <b:else/>
-                              <a class='label-label' expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
-                            </b:if>
-                            <b:if cond='data:showFreqNumbers'>
-                             <span dir='ltr'>(<data:label.count/>)</span>
-                            </b:if>
-                          </li>
-                        </b:loop>
-                      </ul>
-                    </div>
+                    <div class='label-label-wrapper'>
+                      <b:loop values='data:labels' var='label'>
+                        <span class='label-label'>
+                          <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+                          <span dir='ltr'>(<data:label.count/>)</span>
+                         </span>
+                      </b:loop>
+                     </div>
                   </div>
                 </b:includable>
               </b:widget>
@@ -726,6 +761,10 @@
         </div>
         <div class='contents-footer-item'>
           <b:section class='footerleft' id='footerRight' preferred='yes' />
+          <div class="twitter-wrapper">
+            <a class="twitter-timeline" data-lang="ja" data-width="500" data-height="500" href="https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw">Tweets by tomo_it_engr</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
         </div>
       </div>
         <!-- ======================================== -->
