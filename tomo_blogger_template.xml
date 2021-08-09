@@ -459,6 +459,15 @@
             color: #000000;
           }
 
+          /** ******************** */
+          /** footer               */
+          /** ******************** */
+          #Attribution1 {
+            font-size: 20px;
+            height: 75px;
+            line-height: 75px;
+          }
+
       ]]></b:skin>
     </head>
     <body>
@@ -506,7 +515,7 @@
       <!-- ======================================== -->
       <nav>
         <b:section class='nav' id='nav' preferred='yes'>
-          <b:widget id='PageList1' locked='false' title='' type='PageList'>
+          <b:widget id='PageList1' locked='false' title='' type='PageList' version='1'>
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <!-- ページ（ナビ)                            -->
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -540,6 +549,13 @@
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- 注目の投稿                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:widget-settings>
+                <b:widget-setting name='showSnippet'>false</b:widget-setting>
+                <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                <b:widget-setting name='postId'>3581704974767288501</b:widget-setting>
+                <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+                <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
+              </b:widget-settings>
               <b:includable id='main'>
                 <div class='featuredpost-inner'>
                   <b:if cond='data:title != &quot;&quot;'>
@@ -553,11 +569,11 @@
               <b:includable id='content'>
                 <article class='article-featured'>
                   <div class='article-featured-inner'>
-                    <div class='featured-label-wrapper'></div>
+                    <div class='featured-label-wrapper'/>
                     <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
                       <div class='featured-post-title-wrapper'><span itemprop='headline'><data:postTitle/></span></div>
                     </b:if>
-                    <div class='featured-date-wrapper'></div>
+                    <div class='featured-date-wrapper'/>
                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
                       <div class='featured-thumbnail-wrapper'>
                         <div class='thumbnail-top'>
@@ -621,7 +637,7 @@
                   <div class='article-featured-inner'>
                     <div class='blog-label-wrapper'>
                       <b:loop values='data:post.labels' var='label'>
-                        <span class='blog-label'><data:label.name /></span>
+                        <span class='blog-label'><data:label.name/></span>
                       </b:loop>
                     </div>
                     <div class="blog-post-title-wrapper"><span itemprop="headline"><data:post.title/></span></div>
@@ -629,8 +645,8 @@
                         <span class='published' expr:content='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></span>
                     </div>
                     <div class='blog-thumbnail-wrapper'>
-                       <div class="thumbnail-top">
-                        <img class="thumbnail-main-img" expr:src="data:post.firstImageUrl" height='300' width='800' layout='responsive'/>
+                      <div class='thumbnail-top'>
+                        <img class='thumbnail-main-img' expr:src='data:post.firstImageUrl' height='300' width='800' layout='responsive'/>
                       </div>
                     </div>
                     <div class='blog-snippet-wrapper'>
@@ -646,7 +662,7 @@
           </b:section>
         </main>
         <!-- ======================================== -->
-        <!-- =  aside      　                       = -->
+        <!-- =  aside                               = -->
         <!-- ======================================== -->
         <aside>
           <div>
@@ -675,7 +691,7 @@
                         </div>
                         <div class='profile-message-wrapper'>
                           <dl class='profile-datablock'>
-                            <dt class='profile-data'></dt>
+                            <dt class='profile-data'/>
                             <b:if cond='data:aboutme != &quot;&quot;'><dd class='profile-textblock'><data:aboutme/></dd></b:if>
                           </dl>
                         </div>
@@ -757,55 +773,158 @@
       </div>
       <div class='contents-footer'>
         <div class='contents-footer-item'>
-          <b:section class='footerleft' id='footerleft' preferred='yes' />
+          <b:section class='footerleft' id='footerleft' preferred='yes' >
+            <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- footerleft                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:includable id='main'>
+                <b:include name='reportAbuse'/>
+              </b:includable>
+            </b:widget>
+
+            <b:widget id='BlogSearch1' locked='false' title='このブログを検索' type='BlogSearch'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- blogsearch                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:includable id='main'>
+                <!-- only display title if it's non-empty -->
+                <b:if cond='data:title != &quot;&quot;'>
+                  <h2 class='title'><data:title/></h2>
+                </b:if>
+                <div class='widget-content'>
+                  <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
+                    <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
+                      <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+                      <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+                        <tbody>
+                          <tr>
+                            <td class='gsc-input'>
+                              <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+                            </td>
+                            <td class='gsc-search-button'>
+                              <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+                <b:include name='quickedit'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='BlogArchive1' locked='false' title='ブログ アーカイブ' type='BlogArchive'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- ラベル                                   -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:widget-settings>
+                <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+                <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+                <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                <b:widget-setting name='chronological'>false</b:widget-setting>
+                <b:widget-setting name='showPosts'>true</b:widget-setting>
+                <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:if cond='data:title != &quot;&quot;'>
+                  <h2><data:title/></h2>
+                </b:if>
+                <div class='widget-content'>
+                  <div id='ArchiveList'>
+                    <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+                      <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+                      <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
+                      <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>          
+                    </div>
+                  </div>
+                </div>
+              </b:includable>
+              <b:includable id='flat' var='data'>
+                <ul class='flat'>
+                  <b:loop values='data:data' var='i'>
+                    <li class='archivedate'>
+                      <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
+                    </li>
+                  </b:loop>
+                </ul>
+              </b:includable>
+              <b:includable id='interval' var='intervalData'>
+                <b:loop values='data:intervalData' var='interval'>
+                  <ul class='hierarchy'>
+                    <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
+                      <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
+                      <a class='post-count-link' expr:href='data:interval.url'>
+                        <data:interval.name/>
+                      </a>
+                      <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
+                      <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+                      <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+                    </li>
+                  </ul>
+                </b:loop>
+              </b:includable>
+              <b:includable id='menu' var='data'>
+                <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+                  <option value=''><data:title/></option>
+                  <b:loop values='data:data' var='i'>
+                    <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
+                  </b:loop>
+                </select>
+              </b:includable>
+              <b:includable id='posts' var='posts'>
+                <ul class='posts'>
+                  <b:loop values='data:posts' var='post'>
+                    <li><a expr:href='data:post.url'><data:post.title/></a></li>
+                  </b:loop>
+                </ul>
+              </b:includable>
+              <b:includable id='toggle' var='interval'>
+                <a class='toggle' href='javascript:void(0)'>
+                  <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
+                    <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
+                      &#9660;&#160;
+                    <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
+                      &#9668;&#160;
+                    <b:else/>
+                      &#9658;&#160;
+                    </b:if>
+                  </span>
+                </a>
+              </b:includable>
+            </b:widget>
+          </b:section>
         </div>
         <div class='contents-footer-item'>
           <b:section class='footerleft' id='footerRight' preferred='yes' />
-          <div class="twitter-wrapper">
-            <a class="twitter-timeline" data-lang="ja" data-width="500" data-height="500" href="https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw">Tweets by tomo_it_engr</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <div class='twitter-wrapper'>
+            <a class='twitter-timeline' data-lang='ja' data-width='500' data-height='500' href='https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw'>Tweets by tomo_it_engr</a>
+            <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>
           </div>
         </div>
       </div>
         <!-- ======================================== -->
-        <!-- =  footer    　                        = -->
+        <!-- =  footer                              = -->
         <!-- ======================================== -->
       <footer>
         <b:section class='footer' id='footer' preferred='yes'>
-          <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true'>
+          <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true' version='1'>
             <b:widget-settings>
-              <b:widget-setting name='copyright'>aaaa</b:widget-setting>
+              <b:widget-setting name='copyright'>はじめるブログ</b:widget-setting>
             </b:widget-settings>
-            <b:includable id='main' var='this'>
-              <div class='widget-content'>
-                <div class='blogger'>
-                  <a expr:href='data:bloggerUrl' rel='nofollow'>
-                    <b:include name='flatBloggerIcon'/>
-                    <b:message name='messages.poweredByBlogger'/>
-                  </a>
-                </div>
-                <b:if cond='data:imageAuthor'>
-                  <div class='image-attribution'>
-                    <b:if cond='data:imageAuthor.url'>
-                      <b:message name='messages.templateImagesByLink'>
-                        <b:param expr:value='data:imageAuthor.url'/>
-                        <b:param expr:value='data:imageAuthor.name'/>
-                      </b:message>
-                    <b:else/>
-                      <b:message name='messages.templateImagesBy'>
-                        <b:param expr:value='data:imageAuthor.name'/>
-                      </b:message>
-                    </b:if>
-                  </div>
-                </b:if>
-                <b:if cond='data:copyright != &quot;&quot;'>
-                  <div class='copyright'><data:copyright/></div>
+            <b:includable id='main'>
+              <div class='widget-content ' style='text-align: center;'>
+                <b:if cond='data:attribution != &quot;&quot;'>
+                  <data:attribution/>
                 </b:if>
               </div>
+              <b:include name='quickedit'/>
             </b:includable>
           </b:widget>
         </b:section>
       </footer>
-
     </body>
   </html>
