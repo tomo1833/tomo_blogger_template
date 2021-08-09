@@ -330,6 +330,7 @@
 
           .profile-title-wrapper h2 {
             color: #ffffff;
+            font-size: 30px;
             margin: 0 20px 0 20px;
           }
 
@@ -380,6 +381,7 @@
 
           .popular-title-wrapper h2 {
             color: #ffffff;
+            font-size: 30px;
             margin: 0 20px 0 20px;
           }
 
@@ -427,6 +429,7 @@
 
           .label-title-wrapper h2 {
             color: #ffffff;
+            font-size: 30px;
             margin: 0 20px 0 20px;
           }
         
