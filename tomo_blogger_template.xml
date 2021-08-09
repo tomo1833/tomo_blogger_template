@@ -103,7 +103,6 @@
           .contents-footer-item {
             width: 620px;
             background-color: #414FA3;
-            text-align: center;
           }
 
           /** ******************** */
@@ -460,6 +459,44 @@
           }
 
           /** ******************** */
+          /** blogarchive          */
+          /** ******************** */
+          .blogarchive-title-warapper {
+            color: #ffffff;
+            font-size: 30px;
+            height: 40px;
+            line-height: 40px;
+            padding: 20px;
+          }
+
+          .blogarchive-contents-warapper {
+            color: #ffffff;
+            font-size: 16px;
+            padding: 0 20px 0 20px;
+          }
+
+          .post-count-link {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+          }
+          .post-count-link:link,
+          .post-count-link:visited {
+            color: #ffffff;
+          }
+
+          .blogarchive-post-title {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+          }
+
+          .blogarchive-post-title:link,
+          .blogarchive-post-title:visited {
+            color: #ffffff;
+          }
+
+          /** ******************** */
           /** footer               */
           /** ******************** */
           #Attribution1 {
@@ -774,49 +811,9 @@
       <div class='contents-footer'>
         <div class='contents-footer-item'>
           <b:section class='footerleft' id='footerleft' preferred='yes' >
-            <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse'>
-              <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <!-- footerleft                               -->
-              <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <b:includable id='main'>
-                <b:include name='reportAbuse'/>
-              </b:includable>
-            </b:widget>
-
-            <b:widget id='BlogSearch1' locked='false' title='このブログを検索' type='BlogSearch'>
-              <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <!-- blogsearch                               -->
-              <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <b:includable id='main'>
-                <!-- only display title if it's non-empty -->
-                <b:if cond='data:title != &quot;&quot;'>
-                  <h2 class='title'><data:title/></h2>
-                </b:if>
-                <div class='widget-content'>
-                  <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
-                    <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
-                      <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-                      <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
-                        <tbody>
-                          <tr>
-                            <td class='gsc-input'>
-                              <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
-                            </td>
-                            <td class='gsc-search-button'>
-                              <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </form>
-                  </div>
-                </div>
-                <b:include name='quickedit'/>
-              </b:includable>
-            </b:widget>
             <b:widget id='BlogArchive1' locked='false' title='ブログ アーカイブ' type='BlogArchive'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <!-- ラベル                                   -->
+              <!-- アーカイブ                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <b:widget-settings>
                 <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
@@ -830,15 +827,19 @@
                 <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
-                <b:if cond='data:title != &quot;&quot;'>
-                  <h2><data:title/></h2>
-                </b:if>
-                <div class='widget-content'>
-                  <div id='ArchiveList'>
-                    <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-                      <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
-                      <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
-                      <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>          
+                <div class='blogarchive-inner'> 
+                  <div class='blogarchive-title-warapper'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <h2><data:title/></h2>
+                    </b:if>
+                  </div>
+                  <div class='blogarchive-contents-warapper'>
+                    <div id='ArchiveList'>
+                      <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+                        <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+                        <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
+                        <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>          
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -878,7 +879,7 @@
               <b:includable id='posts' var='posts'>
                 <ul class='posts'>
                   <b:loop values='data:posts' var='post'>
-                    <li><a expr:href='data:post.url'><data:post.title/></a></li>
+                    <li><a class='blogarchive-post-title' expr:href='data:post.url'><data:post.title/></a></li>
                   </b:loop>
                 </ul>
               </b:includable>
@@ -896,7 +897,48 @@
                 </a>
               </b:includable>
             </b:widget>
-          </b:section>
+
+            <b:widget id='BlogSearch1' locked='false' title='このブログを検索' type='BlogSearch'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- blogsearch                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:includable id='main'>
+                <!-- only display title if it's non-empty -->
+                <b:if cond='data:title != &quot;&quot;'>
+                  <h2 class='title'><data:title/></h2>
+                </b:if>
+                <div class='widget-content'>
+                  <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
+                    <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
+                      <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+                      <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+                        <tbody>
+                          <tr>
+                            <td class='gsc-input'>
+                              <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+                            </td>
+                            <td class='gsc-search-button'>
+                              <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+                <b:include name='quickedit'/>
+              </b:includable>
+            </b:widget>
+
+            <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse'>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- footerleft                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <b:includable id='main'>
+                <b:include name='reportAbuse'/>
+              </b:includable>
+            </b:widget>
+           </b:section>
         </div>
         <div class='contents-footer-item'>
           <b:section class='footerleft' id='footerRight' preferred='yes' />
