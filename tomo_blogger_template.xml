@@ -97,7 +97,7 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-            margin: 10px;
+            margin: 0 20px 20px 20px;
           }
 
           .contents-footer-item {
@@ -161,7 +161,7 @@
 
           .pagelist-ul {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             margin-block: 0;
             width: 100%;
           }
@@ -394,10 +394,10 @@
 
           .popular-post-title-wrapper {
             font-size: 18px;
-            height: 75px;
+            height: 65px;
             text-align: center;
             margin: 0 10px 0 10px;
-            padding: 5px 0 0 0;
+            padding: 20px 0 0 0;
           }
 
           .popular-img-wrapper {
@@ -465,13 +465,15 @@
           /** blogarchive          */
           /** ******************** */
           .blogarchive-title-warapper {
-            color: #ffffff;
-            font-size: 30px;
-            height: 40px;
-            line-height: 40px;
-            padding: 20px;
+            margin: 20px;
+            height: 50px
           }
 
+          .blogarchive-title-warapper h2 {
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 50px;
+          }
           .blogarchive-contents-warapper {
             color: #ffffff;
             font-size: 16px;
@@ -500,6 +502,90 @@
           }
 
           /** ******************** */
+          /** blogasearch          */
+          /** ******************** */
+          .blogasearch-title-wrapper {
+            height: 50px;
+            padding: 20px 20px 0 20px;
+          }
+
+          .blogasearch-title-wrapper h2 {
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 50px;
+          }
+
+          .gsc-input {
+            padding-left: 20px;
+          }
+
+          .gsc-input-text {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 3px;
+            border: 2px solid #ddd;
+            box-sizing: border-box;
+          }
+
+          .btn-border {
+            background: #ffffff;
+            border: 1px solid #707070;
+            border-radius: 0;
+            text-align: center;
+          }
+
+          .gsc-search-button {
+            height: 40px;
+            width: 100%;
+            text-align: center;
+            
+          }
+
+          .gsc-search-button-submit {
+            height: 40px;
+            margin: 10px 20px 10px 20px;
+            width: 100px;
+          }
+
+
+          /** ******************** */
+          /** reportAbuse          */
+          /** ******************** */
+          .reportAbuse-wrapper {
+            padding: 50px 20px 20px 20px;
+          }
+
+          .report_abuse {
+            font-size: 20px;
+            text-decoration: none;
+          }
+
+          .report_abuse:link,
+          .report_abuse:visited {
+            color: #ffffff;
+          }
+
+
+          /** ******************** */
+          /** twitter              */
+          /** ******************** */
+          .twitter-title-wrapper {
+            margin: 20px;
+            height: 50px
+          }
+
+          .twitter-title-wrapper h2 {
+            font-size: 30px;
+            color: #ffffff;
+            line-height: 50px;
+          }
+
+          .twitter-contents-wrapper {
+            margin:0 20px 20px 20px;
+          }
+
+          /** ******************** */
           /** footer               */
           /** ******************** */
           #Attribution1 {
@@ -507,6 +593,7 @@
             height: 75px;
             line-height: 75px;
           }
+
 
       ]]></b:skin>
     </head>
@@ -770,7 +857,7 @@
                             </div>
                           </div>
                           <div class='popular-button-wrapper'>
-                            <a expr:href='data:post.href' class='btn btn-border'>もっとみる</a>
+                            <a class='btn btn-border' expr:href='data:post.href'>もっとみる</a>
                           </div>
                         </article>
                       </b:loop>
@@ -811,10 +898,11 @@
           </div>
         </aside>
       </div>
+
       <div class='contents-footer'>
         <div class='contents-footer-item'>
           <b:section class='footerleft' id='footerleft' preferred='yes' >
-            <b:widget id='BlogArchive1' locked='false' title='ブログ アーカイブ' type='BlogArchive'>
+            <b:widget id='BlogArchive1' locked='false' title='ブログ アーカイブ' type='BlogArchive' version='1'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- アーカイブ                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -831,11 +919,11 @@
               </b:widget-settings>
               <b:includable id='main'>
                 <div class='blogarchive-inner'> 
-                  <div class='blogarchive-title-warapper'>
-                    <b:if cond='data:title != &quot;&quot;'>
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='blogarchive-title-warapper'>
                       <h2><data:title/></h2>
-                    </b:if>
-                  </div>
+                    </div>
+                  </b:if>
                   <div class='blogarchive-contents-warapper'>
                     <div id='ArchiveList'>
                       <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
@@ -900,60 +988,69 @@
                 </a>
               </b:includable>
             </b:widget>
-
-            <b:widget id='BlogSearch1' locked='false' title='このブログを検索' type='BlogSearch'>
+            <b:widget id='BlogSearch1' locked='false' title='このブログを検索' type='BlogSearch' version='1'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- blogsearch                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <b:includable id='main'>
-                <!-- only display title if it's non-empty -->
-                <b:if cond='data:title != &quot;&quot;'>
-                  <h2 class='title'><data:title/></h2>
-                </b:if>
-                <div class='widget-content'>
-                  <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
-                    <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
-                      <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-                      <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
-                        <tbody>
-                          <tr>
-                            <td class='gsc-input'>
-                              <input autocomplete='off' class='gsc-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
-                            </td>
-                            <td class='gsc-search-button'>
-                              <input class='gsc-search-button' expr:value='data:messages.search' title='search' type='submit'/>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </form>
+                <div class='blogasearch-inner'> 
+                  <!-- only display title if it's non-empty -->
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='blogasearch-title-wrapper'>
+                      <h2 class='title'><data:title/></h2>
+                    </div>
+                  </b:if>
+                  <div class='blogasearch-contents-wrapper'>
+                    <div class='widget-content'>
+                      <div expr:id='data:widget.instanceId + &quot;_form&quot;'>
+                        <form class='gsc-search-box' expr:action='data:blog.searchUrl'>
+                          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+                          <table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+                            <tbody>
+                              <tr>
+                                <td class='gsc-input'>
+                                  <input autocomplete='off' class='gsc-input-text' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' size='10' title='search' type='text'/>
+                                </td>
+                                <td class='gsc-search-button'>
+                                  <input class='gsc-search-button-submit btn-border' expr:value='data:messages.search' title='search' type='submit'/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <b:include name='quickedit'/>
               </b:includable>
             </b:widget>
-
-            <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse'>
+            <b:widget id='ReportAbuse1' locked='false' title='' type='ReportAbuse' version='1'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- footerleft                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <b:includable id='main'>
-                <b:include name='reportAbuse'/>
+                <div class='reportAbuse-wrapper'>
+                  <b:include name='reportAbuse'/>
+                </div>
               </b:includable>
             </b:widget>
-           </b:section>
+          </b:section>
         </div>
         <div class='contents-footer-item'>
-          <b:section class='footerleft' id='footerRight' preferred='yes' />
-          <div class='twitter-wrapper'>
+          <b:section class='footerleft' id='footerRight' preferred='yes'/>
+          <div class='twitter-title-wrapper'>
+            <h2>ツイッター</h2>
+          </div>
+          <div class='twitter-contents-wrapper'>
             <a class='twitter-timeline' data-lang='ja' data-width='500' data-height='500' href='https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw'>Tweets by tomo_it_engr</a>
             <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>
           </div>
         </div>
       </div>
-        <!-- ======================================== -->
-        <!-- =  footer                              = -->
-        <!-- ======================================== -->
+
+      <!-- ======================================== -->
+      <!-- =  footer                              = -->
+      <!-- ======================================== -->
       <footer>
         <b:section class='footer' id='footer' preferred='yes'>
           <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true' version='1'>
