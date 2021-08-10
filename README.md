@@ -12,4 +12,4 @@ Google Blogger のテンプレートです。
 
 ## デモ
 
-![出も画面](https://blogstart40.blogspot.com/)
+![デモ画面]](https://blogstart40.blogspot.com/)
