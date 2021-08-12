@@ -282,6 +282,39 @@
           text-align: center;
         }
           
+        .article-blog-item {
+          height: auto;
+        }
+        .article-blog-item-inner {
+          text-align: center;
+        }
+
+        .blog-body-wrapper {
+          text-align: left;
+        }
+        .blog-body-wrapper h2 {
+          background-color: #414FA3;
+          display: flex;
+          height: 50px;
+          color: #ffffff;
+          font-size: 24px;
+          line-height: 50px;
+          letter-spacing: 1.6px;
+          padding-left: 20px;
+          padding-too: 10px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        .blog-body-wrapper p {
+          padding: 0 20px 0 20px;
+          font-size: 16px;
+          line-height: 1.8;
+          letter-spacing: 1.6px;
+          margin FONT-WEIGHT: 200;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
         /** ******************** */
         /** profile              */
         /** ******************** */
@@ -623,14 +656,16 @@
                 <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
-                <div class='featuredpost-inner'>
-                  <b:if cond='data:title != &quot;&quot;'>
-                    <div class='featuredpost-title-wrapper'>
-                      <h2 class='title'><data:title/></h2>
-                    </div>
-                  </b:if>
-                  <b:include name='content'/>
-                </div>
+                <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                  <div class='featuredpost-inner'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <div class='featuredpost-title-wrapper'>
+                        <h2 class='title'><data:title/></h2>
+                      </div>
+                    </b:if>
+                    <b:include name='content'/>
+                  </div>
+                </b:if>
               </b:includable>
               <b:includable id='content'>
                 <article class='article-featured'>
@@ -690,17 +725,23 @@
                 <b:widget-setting name='showReactions'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main' var='top'>
-                <div class='blog-inner'>
-                  <div class='blog-title-wrapper'><h2>最近の投稿</h2></div>
-                  <b:loop values='data:posts' var='post'>
-                    <b:include data='post' name='post'/>
-                  </b:loop>
-                </div>
+                <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                  <div class='blog-inner'>
+                    <div class='blog-title-wrapper'><h2>最近の投稿</h2></div>
+                    <b:loop values='data:posts' var='post'>
+                      <b:include data='post' name='post'/>
+                    </b:loop>
+                  </div>
+                <b:else/>
+                  <div class='blog-inner'>
+                    <b:include name='post-item' data='data:posts[0]' />
+                  </div>
+                </b:if>
               </b:includable>
               <!-- post パーツ -->
               <b:includable id="post" var="post">
                 <article class="article-blog">
-                  <div class='article-featured-inner'>
+                  <div class='article-blog-inner'>
                     <div class='blog-label-wrapper'>
                       <b:loop values='data:post.labels' var='label'>
                         <span class='blog-label'><data:label.name/></span>
@@ -720,6 +761,24 @@
                     </div>
                     <div class='blog-button-wrapper'>
                       <a expr:href='data:post.url' class='btn btn-border'>もっとみる</a>
+                    </div>
+                  </div>
+                </article>
+              </b:includable>
+              <b:includable id='post-item' var='posts'>
+                <article class='article-blog-item'>
+                  <div class='article-blog-item-inner'>
+                    <div class='blog-label-wrapper'>
+                      <b:loop values='data:posts.labels' var='label'>
+                        <span class='blog-label'><data:label.name/></span>
+                      </b:loop>
+                    </div>
+                    <div class="blog-post-title-wrapper"><span itemprop="headline"><data:posts.title/></span></div>
+                    <div class='blog-date-wrapper'>
+                        <span class='published' expr:content='data:posts.date.iso8601' itemprop='datePublished'><data:post.date/></span>
+                    </div>
+                    <div class='blog-body-wrapper'>
+                      <data:posts.body/>
                     </div>
                   </div>
                 </article>
