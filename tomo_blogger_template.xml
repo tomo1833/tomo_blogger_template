@@ -2,6 +2,27 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
     <head>
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+      <meta content='width=device-width, initial-scale=1' name='viewport'/>
+      <title><data:view.title.escaped/></title>
+      <meta content='summary' name='twitter:card'/>
+      <meta content='@Hecp6eu2SnLClL6' name='twitter:site'/>
+      <meta content='@Hecp6eu2SnLClL6' name='twitter:creator'/>
+      <b:if cond='data:blog.pageName'>
+        <meta expr:content='data:blog.pageName' name='twitter:title'/>
+      <b:else/>
+        <meta expr:content='data:blog.title' name='twitter:title'/>
+      </b:if>
+      <meta expr:content='data:blog.url' name='twitter:url'/>
+      <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+      <b:else/>
+        <meta expr:content='data:post.snippet' name='twitter:description'/>
+      </b:if>
+      <b:if cond='data:blog.postImageUrl'>
+        <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
+      </b:if>
+
+
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
         /** ******************** */
@@ -281,7 +302,10 @@
           width: 100%;
           text-align: center;
         }
-          
+
+        .blog-item-inner {
+          margin-top: 0;
+        }
         .article-blog-item {
           height: auto;
         }
@@ -304,6 +328,9 @@
           padding-too: 10px;
           margin-top: 20px;
           margin-bottom: 20px;
+        }
+        .blog-body-wrapper img {
+          object-fit: cover;
         }
         .blog-body-wrapper p {
           padding: 0 20px 0 20px;
@@ -568,6 +595,15 @@
 
 
       ]]></b:skin>
+
+
+      <b:defaultmarkups>
+
+      </b:defaultmarkups>
+
+      <script type="text/javascript">
+        
+      </script>
     </head>
     <body>
       <!-- ======================================== -->
@@ -660,7 +696,7 @@
                   <div class='featuredpost-inner'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div class='featuredpost-title-wrapper'>
-                        <h2 class='title'><data:title/></h2>
+                        <h2 class='title' ><data:title/></h2>
                       </div>
                     </b:if>
                     <b:include name='content'/>
@@ -686,7 +722,7 @@
                       <data:postSummary/>
                     </div>
                     <div class='featured-button-wrapper'>
-                      <a expr:href='data:postUrl' class='btn btn-border'>もっとみる</a>
+                      <a class='btn btn-border' expr:href='data:postUrl'>もっとみる</a>
                     </div>
                   </div>
                 </article>
@@ -733,8 +769,8 @@
                     </b:loop>
                   </div>
                 <b:else/>
-                  <div class='blog-inner'>
-                    <b:include name='post-item' data='data:posts[0]' />
+                  <div class='blog-item-inner'>
+                    <b:include data='data:posts[0]' name='post-item'/>
                   </div>
                 </b:if>
               </b:includable>
@@ -747,20 +783,20 @@
                         <span class='blog-label'><data:label.name/></span>
                       </b:loop>
                     </div>
-                    <div class="blog-post-title-wrapper"><span itemprop="headline"><data:post.title/></span></div>
+                    <div class='blog-post-title-wrapper'><span itemprop='headline'><data:post.title/></span></div>
                     <div class='blog-date-wrapper'>
                         <span class='published' expr:content='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></span>
                     </div>
                     <div class='blog-thumbnail-wrapper'>
                       <div class='thumbnail-top'>
-                        <img class='thumbnail-main-img' expr:src='data:post.firstImageUrl' height='300' width='800' layout='responsive'/>
+                        <img class='thumbnail-main-img' expr:src='data:post.firstImageUrl' height='300' layout='responsive' width='800'/>
                       </div>
                     </div>
                     <div class='blog-snippet-wrapper'>
                       <data:post.snippet/>
                     </div>
                     <div class='blog-button-wrapper'>
-                      <a expr:href='data:post.url' class='btn btn-border'>もっとみる</a>
+                      <a class='btn btn-border' expr:href='data:post.url'>もっとみる</a>
                     </div>
                   </div>
                 </article>
@@ -773,7 +809,7 @@
                         <span class='blog-label'><data:label.name/></span>
                       </b:loop>
                     </div>
-                    <div class="blog-post-title-wrapper"><span itemprop="headline"><data:posts.title/></span></div>
+                    <div class='blog-post-title-wrapper'><span itemprop='headline'><data:posts.title/></span></div>
                     <div class='blog-date-wrapper'>
                         <span class='published' expr:content='data:posts.date.iso8601' itemprop='datePublished'><data:post.date/></span>
                     </div>
@@ -824,11 +860,15 @@
                           <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
                         </div>
                         <div class='profile-icon-wrapper'>
-                          <img border="0" data-original-height="1000" data-original-width="1001" height="60" src="https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png" width="60" />  
-                          <img border="0" data-original-height="1000" data-original-width="1001" height="60" src="https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png" width="60" />  
-                          <img border="0" data-original-height="1000" data-original-width="1001" height="60" src="https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s320/f_logo_RGB-Blue_100.png" width="60" />  
-                          <img border="0" data-original-height="1000" data-original-width="1001" height="60" src="https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png" width="60" />  
-                          <img border="0" data-original-height="1000" data-original-width="1001" height="60" src="https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png" width="60" />  
+                          <a expr:href='&quot;http://twitter.com/share?text=&quot; + data:blog.pageTitle + &quot;&amp;target=twitter&amp;url=&quot; + data:blog.url' onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" rel="nofollow" target="_blank" expr:title='data:top.shareToTwitterMsg'>
+                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
+                          </a>
+                          <a expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
+                          </a>
+                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s320/f_logo_RGB-Blue_100.png' width='60'/>  
+                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
+                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png' width='60'/>  
                         </div>
                       </b:if>
                     </div>
@@ -858,7 +898,7 @@
                           <div class='popular-post-title-wrapper'><data:post.title/></div>
                           <div class='popular-img-wrapper'>
                             <div class='popular-thumbnail'>
-                              <img class='popular-thumbnail-img' alt='' border='0' expr:src='data:post.featuredImage' height='190' width='340' layout='responsive'/>
+                              <img alt='' border='0' class='popular-thumbnail-img' expr:src='data:post.featuredImage' height='190' layout='responsive' width='340'/>
                             </div>
                           </div>
                           <div class='popular-button-wrapper'>
@@ -1047,8 +1087,8 @@
             <h2>ツイッター</h2>
           </div>
           <div class='twitter-contents-wrapper'>
-            <a class='twitter-timeline' data-lang='ja' data-width='500' data-height='500' href='https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw'>Tweets by tomo_it_engr</a>
-            <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>
+            <a class='twitter-timeline' data-height='500' data-lang='ja' data-width='500' href='https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw'>Tweets by tomo_it_engr</a>
+            <script async='async' charset='utf-8' src='https://platform.twitter.com/widgets.js'/>
           </div>
         </div>
       </div>
