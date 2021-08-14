@@ -860,15 +860,21 @@
                           <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
                         </div>
                         <div class='profile-icon-wrapper'>
-                          <a expr:href='&quot;http://twitter.com/share?text=&quot; + data:blog.pageTitle + &quot;&amp;target=twitter&amp;url=&quot; + data:blog.url' onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" rel="nofollow" target="_blank" expr:title='data:top.shareToTwitterMsg'>
+                          <a expr:href='https://twitter.com/tomo_it_engr' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                           </a>
-                          <a expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                          <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
                           </a>
-                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s320/f_logo_RGB-Blue_100.png' width='60'/>  
-                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
-                          <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png' width='60'/>  
+                          <a expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:blog.url + &quot;&amp;t=&quot; + data:blog.pageTitle' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s320/f_logo_RGB-Blue_100.png' width='60'/>  
+                          </a>
+                          <a href='https://www.instagram.com/tomo_1833/' target='_blank'>
+                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
+                          </a>
+                          <a href='https://github.com/tomo1833' target='_blank'>
+                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png' width='60'/>  
+                          </a>
                         </div>
                       </b:if>
                     </div>
