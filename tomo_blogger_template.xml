@@ -811,7 +811,7 @@
                     </div>
                     <div class='blog-post-title-wrapper'><span itemprop='headline'><data:posts.title/></span></div>
                     <div class='blog-date-wrapper'>
-                        <span class='published' expr:content='data:posts.date.iso8601' itemprop='datePublished'><data:post.date/></span>
+                        <span class='published' expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp /></span>
                     </div>
                     <div class='blog-body-wrapper'>
                       <data:posts.body/>
@@ -860,7 +860,7 @@
                           <a class='profile-link' expr:href='data:userUrl' rel='author'><data:viewProfileMsg/></a>
                         </div>
                         <div class='profile-icon-wrapper'>
-                          <a expr:href='https://twitter.com/tomo_it_engr' target='_blank'>
+                          <a href='https://twitter.com/tomo_it_engr' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                           </a>
                           <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
