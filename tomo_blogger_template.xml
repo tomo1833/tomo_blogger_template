@@ -342,6 +342,16 @@
           margin-bottom: 10px;
         }
 
+        .blog-body-wrapper p {
+          padding: 0 20px 0 20px;
+          font-size: 16px;
+          line-height: 1.8;
+          letter-spacing: 1.6px;
+          margin FONT-WEIGHT: 200;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
         /** ******************** */
         /** profile              */
         /** ******************** */
@@ -383,13 +393,22 @@
           margin: 0 20px 10px 20px;
           padding: 0 0 10px 0;
         }
-        .profile-icon-wrapper {
-          display: flex;
-          flex-direction: row;
-          height: 80px;
-          justify-content: space-between;
-          width: 340px;
-          margin: 0 20px 10px 20px;
+        .home-link
+        .blog-pager-newer-link,
+        .blog-pager-older-link {
+          height: 40px;
+          width: 160px;
+          background-color: #FFFFFF;
+          display: block;
+          line-height: 40px;
+          text-decoration: none;
+        }
+        .home-link,
+        .blog-pager-newer-link.link,
+        .blog-pager-newer-link.visited,
+        .blog-pager-older-link.link,
+        .blog-pager-older-link.visited {
+          color: #ffffff;
         }
 
         /** ******************** */
@@ -593,7 +612,6 @@
             line-height: 75px;
           }
 
-
       ]]></b:skin>
 
 
@@ -601,9 +619,6 @@
 
       </b:defaultmarkups>
 
-      <script type="text/javascript">
-        
-      </script>
     </head>
     <body>
       <!-- ======================================== -->
@@ -767,11 +782,13 @@
                     <b:loop values='data:posts' var='post'>
                       <b:include data='post' name='post'/>
                     </b:loop>
+                    <b:include name='nextprev'/>
                   </div>
                 <b:else/>
                   <div class='blog-item-inner'>
                     <b:include data='data:posts[0]' name='post-item'/>
                   </div>
+                  <b:include name='nextprev'/>
                 </b:if>
               </b:includable>
               <!-- post パーツ -->
@@ -818,6 +835,23 @@
                     </div>
                   </div>
                 </article>
+              </b:includable>
+              <b:includable id='nextprev'>
+                <div class='blog-pager' id='blog-pager'>
+                  <b:if cond='data:newerPageUrl'>
+                    <span id='blog-pager-newer-link'>
+                      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+                    </span>
+                  </b:if>
+
+                  <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+
+                  <b:if cond='data:olderPageUrl'>
+                    <span id='blog-pager-older-link'>
+                      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+                    </span>
+                  </b:if>
+                </div>
               </b:includable>
             </b:widget>
           </b:section>
