@@ -399,9 +399,10 @@
           height: 40px;
           width: 160px;
           background-color: #FFFFFF;
-          display: block;
+          display: inline-block;
           line-height: 40px;
           text-decoration: none;
+          color: #000000;
         }
         .home-link:link,
         .home-link:visited,
@@ -409,7 +410,7 @@
         .blog-pager-newer-link:visited,
         .blog-pager-older-link:link,
         .blog-pager-older-link:visited {
-          color: #ffffff;
+          color: #000000;
         }
 
         /** ******************** */
