@@ -393,6 +393,18 @@
           margin: 0 20px 10px 20px;
           padding: 0 0 10px 0;
         }
+        .profile-icon-wrapper {
+          width: 340px;
+          padding: 20px;
+          display: flex;
+          align-content: space-between;
+          flex-direction: row;
+        }
+        .profile-icon-wrapper a {
+          display: block;
+          padding: 5px;
+        }
+
         .home-link,
         .blog-pager-newer-link,
         .blog-pager-older-link {
@@ -886,6 +898,7 @@
                             <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:photo.height' expr:src='data:photo.url' expr:width='data:photo.width'/>
                           </a>
                         </div>
+                        <data:display-name/>
                         <div class='profile-message-wrapper'>
                           <dl class='profile-datablock'>
                             <dt class='profile-data'/>
