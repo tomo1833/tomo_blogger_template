@@ -393,7 +393,7 @@
           margin: 0 20px 10px 20px;
           padding: 0 0 10px 0;
         }
-        .home-link
+        .home-link,
         .blog-pager-newer-link,
         .blog-pager-older-link {
           height: 40px;
@@ -403,11 +403,12 @@
           line-height: 40px;
           text-decoration: none;
         }
-        .home-link,
-        .blog-pager-newer-link.link,
-        .blog-pager-newer-link.visited,
-        .blog-pager-older-link.link,
-        .blog-pager-older-link.visited {
+        .home-link:link,
+        .home-link:visited,
+        .blog-pager-newer-link:link,
+        .blog-pager-newer-link:visited,
+        .blog-pager-older-link:link,
+        .blog-pager-older-link:visited {
           color: #ffffff;
         }
 
