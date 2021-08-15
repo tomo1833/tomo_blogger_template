@@ -632,6 +632,9 @@
           }
 
           @media screen and (max-width: 480px) {
+            nav {
+              width: 480px;
+            }
             main {
               width: 480px;
             }
@@ -643,16 +646,67 @@
             }
             .article-featured-inner {
               width: 480px;
+              padding: 0;
             }
             .thumbnail-top {
               width: 480px;
             }
             .thumbnail-main-img {
               width: 480px;
+            }
+
+            .blog-title-wrapper {
+              width: 480px;
+            }
+            .article-blog {
+              width: 480px;
+            }
+            .article-blog-inner {
+              width: 480px;
+              padding: 0;
+            }
+          }
+
+          @media screen and (max-width:380px) {
+            nav {
+              width: 380px;
+            }
+            main {
+              width: 380px;
+            }
+            .featuredpost-title-wrapper {
+              width: 380px;
+            }
+            .article-featured {
+              width: 380px;
+            }
+            .article-featured-inner {
+              width: 380px;
+              padding: 0;
+            }
+            .thumbnail-top {
+              width: 380px;
+            }
+            .thumbnail-main-img {
+              width: 380px;
+            }
+
+            .blog-title-wrapper {
+              width: 380px;
+            }
+            .article-blog {
+              width: 380px;
+            }
+            .article-blog-inner {
+              width: 380px;
+              padding: 0;
             }
           }
 
           @media screen and (max-width: 320px) {
+            nav {
+              width: 320px;
+            }
             main {
               width: 320px;
             }
@@ -664,11 +718,23 @@
             }
             .article-featured-inner {
               width: 320px;
+              padding: 0;
             }
             .thumbnail-top {
               width: 320px;
             }
             .thumbnail-main-img {
+              width: 320px;
+            }
+
+            .article-blog-inner {
+              width: 320px;
+              padding: 0;
+            }
+            .blog-title-wrapper {
+              width: 320px;
+            }
+            .article-blog {
               width: 320px;
             }
           }
