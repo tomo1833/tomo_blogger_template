@@ -632,110 +632,131 @@
           }
 
           @media screen and (max-width: 480px) {
-            nav {
+            nav,
+            main, 
+            .article-featured,
+            .article-featured-inner,
+            .featuredpost-title-wrapper,
+            .thumbnail-top,
+            .thumbnail-main-img,
+            .blog-title-wrapper,
+            .article-blog,
+            .article-blog-inner,
+            .article-blog-item, 
+            .blog-body-wrapper img {
               width: 480px;
             }
-            main {
-              width: 480px;
+            nav,
+            aside {
+              margin: 0;
             }
-            .featuredpost-title-wrapper {
-              width: 480px;
-            }
-            .article-featured {
-              width: 480px;
-            }
-            .article-featured-inner {
-              width: 480px;
-              padding: 0;
-            }
-            .thumbnail-top {
-              width: 480px;
-            }
-            .thumbnail-main-img {
-              width: 480px;
-            }
-
-            .blog-title-wrapper {
-              width: 480px;
-            }
-            .article-blog {
-              width: 480px;
-            }
+            .article-featured-inner,
             .article-blog-inner {
-              width: 480px;
               padding: 0;
             }
           }
 
-          @media screen and (max-width:380px) {
-            nav {
-              width: 380px;
+          @media screen and (max-width: 460px) {
+            nav,
+            main,
+            aside,
+            .article-featured,
+            .article-featured-inner,
+            .featuredpost-title-wrapper,
+            .thumbnail-top,
+            .thumbnail-main-img,
+            .blog-title-wrapper,
+            .article-blog,
+            .article-blog-inner,
+            .article-blog-item, 
+            .blog-body-wrapper img {
+
+              width: 460px;
             }
-            main {
-              width: 380px;
+            nav,
+            aside {
+              margin: 0;
             }
-            .featuredpost-title-wrapper {
-              width: 380px;
-            }
-            .article-featured {
-              width: 380px;
-            }
-            .article-featured-inner {
-              width: 380px;
+            .article-featured-inner,
+            .article-blog-inner {
               padding: 0;
             }
-            .thumbnail-top {
-              width: 380px;
-            }
-            .thumbnail-main-img {
-              width: 380px;
-            }
+          }
+          @media screen and (max-width: 420px) {
+            nav,
+            main,
+            aside,
+            .article-featured,
+            .article-featured-inner,
+            .featuredpost-title-wrapper,
+            .thumbnail-top,
+            .thumbnail-main-img,
+            .blog-title-wrapper,
+            .article-blog,
+            .article-blog-inner,
+            .article-blog-item, 
+            .blog-body-wrapper img {
 
-            .blog-title-wrapper {
-              width: 380px;
+              width: 420px;
             }
-            .article-blog {
-              width: 380px;
+            nav,
+            aside {
+              margin: 0;
             }
+            .article-featured-inner,
             .article-blog-inner {
+              padding: 0;
+            }
+          }
+          @media screen and (max-width:380px) {
+            nav,
+            main,
+            aside,
+            .article-featured,
+            .article-featured-inner,
+            .featuredpost-title-wrapper,
+            .thumbnail-top,
+            .thumbnail-main-img,
+            .blog-title-wrapper,
+            .article-blog,
+            .article-blog-inner,
+            .article-blog-item, 
+            .blog-body-wrapper img {
+
               width: 380px;
+            }
+            nav,
+            aside {
+              margin: 0;
+            }
+            .article-featured-inner,
+            .article-blog-inner {
               padding: 0;
             }
           }
 
           @media screen and (max-width: 320px) {
-            nav {
+            nav,
+            main,
+            aside,
+            .article-featured,
+            .article-featured-inner,
+            .featuredpost-title-wrapper,
+            .thumbnail-top,
+            .thumbnail-main-img,
+            .blog-title-wrapper,
+            .article-blog,
+            .article-blog-inner,
+            .article-blog-item {
               width: 320px;
             }
-            main {
-              width: 320px;
+            nav,
+            aside {
+              margin: 0;
             }
-            .featuredpost-title-wrapper {
-              width: 320px;
-            }
-            .article-featured {
-              width: 320px;
-            }
-            .article-featured-inner {
-              width: 320px;
-              padding: 0;
-            }
-            .thumbnail-top {
-              width: 320px;
-            }
-            .thumbnail-main-img {
-              width: 320px;
-            }
-
+            .article-featured-inner,
             .article-blog-inner {
-              width: 320px;
               padding: 0;
-            }
-            .blog-title-wrapper {
-              width: 320px;
-            }
-            .article-blog {
-              width: 320px;
             }
           }
 
@@ -961,6 +982,17 @@
                       <data:posts.body/>
                     </div>
                   </div>
+                  <div class='blog-icon-wrapper'>
+                    <a href='https://twitter.com/tomo_it_engr' target='_blank'>
+                       <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
+                    </a>
+                      <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
+                      </a>
+                      <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
+                      </a>
+                  </div>
                 </article>
               </b:includable>
               <b:includable id='nextprev'>
@@ -970,9 +1002,7 @@
                       <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
                     </span>
                   </b:if>
-
                   <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-
                   <b:if cond='data:olderPageUrl'>
                     <span id='blog-pager-older-link'>
                       <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
@@ -1029,9 +1059,6 @@
                           </a>
                           <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
-                          </a>
-                          <a expr:href='&quot;http://www.facebook.com/sharer.php?u=&quot; + data:blog.url + &quot;&amp;t=&quot; + data:blog.pageTitle' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
-                            <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s320/f_logo_RGB-Blue_100.png' width='60'/>  
                           </a>
                           <a href='https://www.instagram.com/tomo_1833/' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
