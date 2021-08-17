@@ -683,6 +683,9 @@
             .PopularPosts img {
               padding: 0;
             }
+            .popular-img-wrapper {
+              margin: 20px 0 20px 0;
+            }
           }
 
           @media screen and (max-width: 320px) {
@@ -728,8 +731,8 @@
       <!-- =  header                              = -->
       <!-- ======================================== -->
       <header>
-        <b:section class="header" id="header" maxwidgets="1" showaddelement="yes">
-          <b:widget id="Header1" locked="false" title="{タイトル}(Header)" type="Header" version="1">
+        <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='Header1' locked='false' title='テストブログ (Header)' type='Header' version='1'>
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <!-- ヘッダー                                 -->
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -797,8 +800,8 @@
         <!-- =  main                                = -->
         <!-- ======================================== -->
         <main>
-          <b:section class="main" id="blog" showaddelement="yes">
-            <b:widget id='FeaturedPost1' locked='false' title='注目の投稿' type='FeaturedPost'>
+          <b:section class='main' id='blog' showaddelement='yes'>
+            <b:widget id='FeaturedPost1' locked='false' title='注目の投稿' type='FeaturedPost' version='1'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- 注目の投稿                               -->
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -814,7 +817,7 @@
                   <div class='featuredpost-inner'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div class='featuredpost-title-wrapper'>
-                        <h2 class='title' ><data:title/></h2>
+                        <h2><data:title/></h2>
                       </div>
                     </b:if>
                     <b:include name='content'/>
@@ -832,7 +835,7 @@
                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
                       <div class='featured-thumbnail-wrapper'>
                         <div class='thumbnail-top'>
-                          <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' width='800' layout='responsive'/>
+                          <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
                         </div>
                       </div>
                     </b:if>
@@ -931,7 +934,7 @@
                     </div>
                     <div class='blog-post-title-wrapper'><span itemprop='headline'><data:posts.title/></span></div>
                     <div class='blog-date-wrapper'>
-                        <span class='published' expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp /></span>
+                        <span class='published' expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp/></span>
                     </div>
                     <div class='blog-body-wrapper'>
                       <data:posts.body/>
@@ -974,7 +977,7 @@
         <aside>
           <div>
             <b:section class='sidebar' id='sidebar' preferred='yes'>
-              <b:widget id='Profile1' locked='false' title='自己紹介' type='Profile'>
+              <b:widget id='Profile1' locked='false' title='自己紹介' type='Profile' version='1'>
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <!-- 自己紹介                                 -->
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -997,7 +1000,7 @@
                           </a>
                         </div>
                         <div class='profile-name-wrapper'>
-                          <data:displayname />
+                          <data:displayname/>
                         </div>
                         <div class='profile-message-wrapper'>
                           <dl class='profile-datablock'>
@@ -1027,7 +1030,7 @@
                   </div>
                 </b:includable>
               </b:widget>
-              <b:widget id='PopularPosts1' locked='false' title='人気の投稿' type='PopularPosts'>
+              <b:widget id='PopularPosts1' locked='false' title='人気の投稿' type='PopularPosts' version='1'>
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <!-- 人気の投稿                               -->
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -1062,7 +1065,7 @@
                   </div>
                 </b:includable>
               </b:widget>
-              <b:widget id='Label1' locked='false' title='ラベル' type='Label'>
+              <b:widget id='Label1' locked='false' title='ラベル' type='Label' version='1'>
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <!-- ラベル                                   -->
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
@@ -1098,7 +1101,7 @@
 
       <div class='contents-footer'>
         <div class='contents-footer-item'>
-          <b:section class='footerleft' id='footerleft' preferred='yes' >
+          <b:section class='footerleft' id='footerleft' preferred='yes'>
             <b:widget id='BlogArchive1' locked='false' title='ブログ アーカイブ' type='BlogArchive' version='1'>
               <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <!-- アーカイブ                               -->
@@ -1250,7 +1253,7 @@
       <!-- ======================================== -->
       <footer>
         <b:section class='footer' id='footer' preferred='yes'>
-          <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='true' version='1'>
+          <b:widget id='Attribution1' locked='true' title='' type='Attribution' version='1'>
             <b:widget-settings>
               <b:widget-setting name='copyright'>はじめるブログ</b:widget-setting>
             </b:widget-settings>
