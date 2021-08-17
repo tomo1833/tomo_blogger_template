@@ -352,6 +352,13 @@
           margin-bottom: 10px;
         }
 
+        .blog-icon-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          padding: 20px 0 20px 0;
+        }
+
         /** ******************** */
         /** profile              */
         /** ******************** */
@@ -398,8 +405,8 @@
         .profile-icon-wrapper {
           padding: 20px;
           display: flex;
-          align-content: space-between;
           flex-direction: row;
+          justify-content: space-evenly;
         }
         .profile-icon-wrapper a {
           display: block;
@@ -749,7 +756,7 @@
               <!--No header image -->
               <div id='header-inner'>
                 <div class='title-wrapper'>
-                  <h1 class='title'><b:include name='title'/></h1>
+                  <h1><b:include name='title'/></h1>
                 </div>
               </div>
             </b:includable>
@@ -941,15 +948,15 @@
                     </div>
                   </div>
                   <div class='blog-icon-wrapper'>
-                    <a href='https://twitter.com/tomo_it_engr' target='_blank'>
+                    <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'>
                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                     </a>
-                      <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
-                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
-                      </a>
-                      <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
-                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
-                      </a>
+                    <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                       <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s218/f_logo_RGB-Blue_100.png' width='60'/>  
+                    </a>
+                    <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                      <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
+                    </a>
                   </div>
                 </article>
               </b:includable>
@@ -1030,10 +1037,10 @@
                   </div>
                 </b:includable>
               </b:widget>
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
+              <!-- 人気の投稿                               -->
+              <!-- = = = = = = = = = = = = = = = = = = = =  -->
               <b:widget id='PopularPosts1' locked='false' title='人気の投稿' type='PopularPosts' version='1'>
-                <!-- = = = = = = = = = = = = = = = = = = = =  -->
-                <!-- 人気の投稿                               -->
-                <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <b:widget-settings>
                   <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
                   <b:widget-setting name='showThumbnails'>true</b:widget-setting>
@@ -1197,7 +1204,7 @@
                   <!-- only display title if it's non-empty -->
                   <b:if cond='data:title != &quot;&quot;'>
                     <div class='blogasearch-title-wrapper'>
-                      <h2 class='title'><data:title/></h2>
+                      <h2><data:title/></h2>
                     </div>
                   </b:if>
                   <div class='blogasearch-contents-wrapper'>
