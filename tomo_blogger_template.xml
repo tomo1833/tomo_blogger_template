@@ -475,6 +475,9 @@
           width: 100%;
           text-align: center;
         }
+        .PopularPosts img {
+          padding-right: 0;
+        }
 
         /** ******************** */
         /** label                */
