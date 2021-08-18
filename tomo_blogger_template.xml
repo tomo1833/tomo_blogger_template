@@ -226,7 +226,7 @@
         .featured-snippet-wrapper {
           font-size: 16px;
           height: 75px;
-          padding: 20px;
+          padding: 10px 20px 10px 20px;
           text-align: center;
         }
         .featured-button-wrapper {
@@ -294,7 +294,7 @@
         .blog-snippet-wrapper {
           font-size: 16px;
           height: 75px;
-          padding: 20px;
+          padding: 10px 20px 10px 20px;
           text-align: center;
         }
         .blog-button-wrapper {
