@@ -696,6 +696,14 @@
             .popular-img-wrapper {
               margin: 20px 0 20px 0;
             }
+
+            .featured-snippet-wrapper ,
+            .blog-snippet-wrapper {
+              height: 90px;
+            }
+            
+            .thumbnail-main-img
+
           }
 
           @media screen and (max-width: 320px) {
@@ -715,7 +723,6 @@
             .blog-body-wrapper img,
             .profile-title-wrapper,
             .contents-footer-item  {
-
               width: 320px;
             }
             nav,
@@ -726,6 +733,12 @@
             .article-blog-inner {
               padding: 0;
             }
+
+            .featured-snippet-wrapper ,
+            .blog-snippet-wrapper {
+              height: 90px;
+            }
+
           }
 
       ]]></b:skin>
