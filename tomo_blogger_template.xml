@@ -384,8 +384,9 @@
             box-sizing: border-box;
             font-style: italic;
             color: #464646;
-            border: solid 3px #3ca5d4;
+            border: solid 3px #414FA3;
             border-left-width: 50px;
+            margin: 20px;
         }
 
         blockquote:before{
