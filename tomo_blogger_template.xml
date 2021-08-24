@@ -22,6 +22,7 @@
         <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
       </b:if>
 
+      
 
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
@@ -324,10 +325,26 @@
           font-size: 24px;
           line-height: 50px;
           letter-spacing: 1.6px;
-          padding-left: 20px;
-          padding-too: 10px;
-          margin-top: 20px;
-          margin-bottom: 20px;
+          margin: 2em 0;
+          padding: 10px 20px;
+        }
+
+        .blog-body-wrapper h3 {
+          position: relative;
+          padding: 15px 0 15px 20px;
+          margin-left: -16px;
+          font-size: 21px;
+          margin: 1em 5px;
+        }
+        .blog-body-wrapper h3:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 3px;
+          width: 6px;
+          height: 100%;
+          background: #414FA3;
         }
         .blog-body-wrapper img {
           object-fit: cover;
@@ -633,6 +650,50 @@
             line-height: 75px;
           }
 
+          .ltr header {
+            height: auto;
+          }
+          .ltr nav {
+            height: auto;
+            margin: 0;
+          }
+
+          .table-of-contents {
+            margin:2em 1em;
+            position: relative;
+            padding: 0.5em 1.5em;
+            border-top: solid 2px black;
+            border-bottom: solid 2px black;
+          }
+          .table-of-contents:after,
+          .table-of-contents:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            width: 2px;
+            height: -webkit-calc(100% + 20px);
+            height: calc(100% + 20px);
+            background-color: black;
+          }
+          .table-of-contents:after {
+            right: 10px;
+          }
+          .table-of-contents:before {
+            left: 10px;
+          }
+          .table-of-contents ol {
+            display: block;
+            list-style-type: decimal;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+          }
+          .table-of-contents li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+            line-height: 1.8em;
+          }
+
 
           @media screen and (max-width: 480px) {
             nav,
@@ -782,16 +843,15 @@
             }
           }
 
+
+
+
       ]]></b:skin>
 
 
-      <b:defaultmarkups>
-        <b:defaultmarkup type='Common'>
-        </b:defaultmarkup>
-      </b:defaultmarkups>
-
     </head>
     <body>
+      <b:class cond='data:view.isPreview' name='preview'/>
       <!-- ======================================== -->
       <!-- =  header                              = -->
       <!-- ======================================== -->
