@@ -22,7 +22,7 @@
         <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
       </b:if>
 
-      
+      <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
 
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
@@ -346,6 +346,25 @@
           height: 100%;
           background: #414FA3;
         }
+
+        .blog-body-wrapper h4 {
+          position: relative;
+          padding: 10px 0 10px 20px;
+          margin-left: -16px;
+          font-size: 18px;
+          margin: 1em 5px;
+        }
+        .blog-body-wrapper h4:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 3px;
+          width: 6px;
+          height: 100%;
+          background: #414FA3;
+        }
+
         .blog-body-wrapper img {
           object-fit: cover;
         }
@@ -393,14 +412,14 @@
             display: inline-block;
             position: absolute;
             top: 50%;
-            left: -37px;
+            left: -45px;
             -ms-transform: translateY(-50%);
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-            content: "\f10d";
-            font-family: FontAwesome;
+            content: "\"";
+            font-family: sans-serif;
             color: #FFF;
-            font-size: 22px;
+            font-size: 50px;
             line-height: 1;
             font-weight: 900;
         }
@@ -418,6 +437,10 @@
             text-align: right;
             color: #888888;
             font-size: 0.9em;
+        }
+
+        strong {
+          background: linear-gradient(transparent 30%, #fbd 30%);
         }
 
         /** ******************** */
