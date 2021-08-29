@@ -309,7 +309,7 @@
           padding: 40px 0;
           text-align: center;
         }
-        .article-blog-post-item-title-wrapper {
+        .blog-post-item-title-wrapper {
           font-size: 24px;
           padding: 40px;
         }
@@ -926,6 +926,11 @@
             #footer div {
               font-size: 18px;
             }
+            .blog-post-item-title-wrapper {
+              padding: 20px;
+            }
+
+            
           }
 
           @media screen and (max-width: 360px) {
@@ -977,8 +982,14 @@
             .article-blog-button-wrapper {
               padding: 20px 0 0 0;
             }
+            .article-blog-item-inner {
+              padding: 20px 0;
+            }
             #footer div {
               font-size: 18px;
+            }
+            .blog-post-item-title-wrapper {
+              padding: 20px;
             }
           }
 
@@ -1026,17 +1037,17 @@
             .article-blog-button-wrapper {
               padding: 20px 0 0 0;
             }
+            .article-blog-item-inner {
+              padding: 20px 0;
+            }
+            .blog-post-item-title-wrapper {
+              padding: 20px;
+            }
             #footer div {
               font-size: 18px;
             }
           }
-
-
-
-
       ]]></b:skin>
-
-
     </head>
     <body>
       <b:class cond='data:view.isPreview' name='preview'/>
@@ -1204,7 +1215,7 @@
                     <b:include name='nextprev'/>
                   </div>
                 <b:else/>
-                  <div class='blog-item-inner'>
+                  <div class='article-blog-item-inner'>
                     <b:include data='data:posts[0]' name='post-item'/>
                   </div>
                   <b:include name='nextprev'/>
@@ -1245,7 +1256,7 @@
                         <span class='blog-label'><data:label.name/></span>
                       </b:loop>
                     </div>
-                    <div class='article-blog-post-item-title-wrapper'><h1 itemprop='headline'><data:posts.title/></h1></div>
+                    <div class='blog-post-item-title-wrapper'><h1 itemprop='headline'><data:posts.title/></h1></div>
                     <div class='article-blog-date-wrapper'>
                         <span class='published' expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp/></span>
                     </div>
