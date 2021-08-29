@@ -120,33 +120,6 @@
         }
 
         /** ******************** */
-        /** common class         */
-        /** ******************** */
-        .thumbnail-main-img {
-          border: 1px solid #707070;
-          object-fit: cover;
-          width: 760px;
-        }
-        .btn {
-          display: inline-block;
-          height: 40px;
-          width: 160px;
-          font-size: 16px;
-          line-height: 40px;
-          text-decoration: none;
-        }
-        .btn:link,
-        .btn:visited {
-          color: #707070;
-        }
-        .btn-border {
-          background: #ffffff;
-          border: 1px solid #707070;
-          border-radius: 0;
-          text-align: center;
-        }
-
-        /** ******************** */
         /** header               */
         /** ******************** */
         #header-inner {
@@ -237,7 +210,7 @@
           width: 100%;
           text-align: center;
         }
-        .featured-button {
+        .featuredpost-button {
           display: inline-block;
           height: 40px;
           width: 160px;
@@ -249,9 +222,12 @@
           border-radius: 0;
           text-align: center;
         }
-        .featured-button:link,
-        .featured-button:visited {
+        .featuredpost-button:link,
+        .featuredpost-button:visited {
           color: #707070;
+        }
+        .featuredpost-button:hover {
+          text-decoration: underline;
         }
 
         /** ******************** */
@@ -288,7 +264,7 @@
           width: 100%;
         }
         .blog-post-label,
-        .blog-post-label {
+        .blog-post-item-label {
           border: 1px solid #707070;
           border-radius: 0;
           background: #ffffff;
@@ -316,15 +292,34 @@
         .blog-post-thumbnail-top {
           text-align: center;
         }
-        .article-blog-snippet-wrapper {
+        .blog-post-snippet-wrapper {
           font-size: 16px;
           line-height: 1.8;
           padding: 0 0 40px 0;
           text-align: center;
         }
-        .article-blog-button-wrapper {
+        .blog-post-button-wrapper {
           width: 100%;
           text-align: center;
+        }
+        .blog-post-button {
+          display: inline-block;
+          height: 40px;
+          width: 160px;
+          font-size: 16px;
+          line-height: 40px;
+          text-decoration: none;
+          background: #ffffff;
+          border: 1px solid #707070;
+          border-radius: 0;
+          text-align: center;
+        }
+        .blog-post-button:link,
+        .blog-post-button:visited {
+          color: #707070;
+        }
+        .blog-post-button:hover {
+          text-decoration: underline;
         }
 
         .blog-item-inner {
@@ -354,7 +349,6 @@
           margin: 2em 0;
           padding: 10px 40px;
         }
-
         .blog-post-item-body-wrapper h3 {
           position: relative;
           padding: 15px 0 15px 20px;
@@ -373,7 +367,11 @@
           height: 100%;
           background: #414FA3;
         }
-
+        .blog-post-thumbnail-img {
+          border: 1px solid #707070;
+          object-fit: cover;
+          width: 760px;
+        }
         .blog-post-item-body-wrapper h4 {
           position: relative;
           padding: 10px 0 10px 40px;
@@ -391,7 +389,6 @@
           height: 100%;
           background: #414FA3;
         }
-
         .blog-post-item-body-wrapper img {
           object-fit: cover;
         }
@@ -403,8 +400,7 @@
           margin-top: 10px;
           margin-bottom: 30px;
         }
-
-        .frame-simple {
+        .blog-post-item-body-wrapper .frame-simple {
           padding: 1em;
           margin: 2em 40px;
           color: #5d627b;
@@ -412,18 +408,16 @@
           border-top: solid 5px #414FA3;
           box-shadow: 0 3px 5px rgb(0 0 0 / 22%);
         }
-
-        .frame-simple li {
+        .blog-post-item-body-wrapper .frame-simple li {
           padding: 0.8em;
         }
-        .blog-icon-wrapper {
+        .blog-post-item-icon-wrapper {
           display: flex;
           flex-direction: row;
           justify-content: space-evenly;
           padding: 20px 0 20px 0;
         }
-
-        blockquote {
+        .blog-post-item-body-wrapper blockquote {
             position: relative;
             padding: 10px 12px;
             box-sizing: border-box;
@@ -433,8 +427,7 @@
             border-left-width: 50px;
             margin: 20px;
         }
-
-        blockquote:before{
+        .blog-post-item-body-wrapper blockquote:before{
             display: inline-block;
             position: absolute;
             top: 50%;
@@ -449,23 +442,20 @@
             line-height: 1;
             font-weight: 900;
         }
-
-        blockquote p {
+        .blog-post-item-body-wrapper blockquote p {
             position: relative;
             padding: 0;
             margin: 10px 0;
             z-index: 3;
             line-height: 1.7;
         }
-
-        blockquote cite {
+        .blog-post-item-body-wrapper blockquote cite {
             display: block;
             text-align: right;
             color: #888888;
             font-size: 0.9em;
         }
-
-        strong {
+        .blog-post-item-body-wrapper strong {
           background: linear-gradient(transparent 30%, #fbd 30%);
         }
 
@@ -589,6 +579,26 @@
       right: -19px;
 }
 
+        .home-link,
+        .blog-pager-newer-link,
+        .blog-pager-older-link {
+          height: 40px;
+          width: 160px;
+          background-color: #FFFFFF;
+          display: inline-block;
+          line-height: 40px;
+          text-decoration: none;
+          color: #000000;
+        }
+        .home-link:link,
+        .home-link:visited,
+        .blog-pager-newer-link:link,
+        .blog-pager-newer-link:visited,
+        .blog-pager-older-link:link,
+        .blog-pager-older-link:visited {
+          color: #000000;
+        }
+
         /** ******************** */
         /** profile              */
         /** ******************** */
@@ -625,7 +635,6 @@
           text-align: center;
           font-size: 20px;
         }
-
         .profile-message-wrapper {
           margin: 0 20px 10px 20px;
           font-size: 14px;
@@ -646,25 +655,6 @@
           padding: 5px;
         }
 
-        .home-link,
-        .blog-pager-newer-link,
-        .blog-pager-older-link {
-          height: 40px;
-          width: 160px;
-          background-color: #FFFFFF;
-          display: inline-block;
-          line-height: 40px;
-          text-decoration: none;
-          color: #000000;
-        }
-        .home-link:link,
-        .home-link:visited,
-        .blog-pager-newer-link:link,
-        .blog-pager-newer-link:visited,
-        .blog-pager-older-link:link,
-        .blog-pager-older-link:visited {
-          color: #000000;
-        }
 
         /** ******************** */
         /** popular              */
@@ -684,33 +674,50 @@
           margin: 0 20px 0 20px;
           ligne-height: 25px;
         }
-        .article-popular {
+        .popular-article {
           background-color: #ffffff;
-          height: 365px;
           margin: 0 0 20px 0;
           width: 380px;
         }
         .popular-post-title-wrapper {
           font-size: 18px;
-          height: 65px;
           text-align: center;
           margin: 0 10px 0 10px;
-          padding: 20px 0 0 0;
+          padding: 40px 0 0 0;
         }
         .popular-img-wrapper {
           margin: 20px;
         }
+        .popular-thumbnail {
+        }
         .popular-thumbnail-img {
           border: 1px solid #707070;
           object-fit: cover;
+          padding-right: 0 !important;
         }
         .popular-button-wrapper {
-          height: 40px;
+          padding: 0 0 40px 0;
+          text-align: center;
           width: 100%;
+        }
+        .popular-button {
+          display: inline-block;
+          height: 40px;
+          width: 160px;
+          font-size: 16px;
+          line-height: 40px;
+          text-decoration: none;
+          background: #ffffff;
+          border: 1px solid #707070;
+          border-radius: 0;
           text-align: center;
         }
-        .PopularPosts img {
-          padding-right: 0;
+        .popular-button-:link,
+        .popular-button-:visited {
+          color: #707070;
+        }
+        .popular-button:hover {
+          text-decoration: underline;
         }
 
         /** ******************** */
@@ -911,7 +918,6 @@
             line-height: 1.8em;
           }
 
-
           @media screen and (max-width: 480px) {
             nav,
             main,
@@ -921,7 +927,7 @@
             .blog-article,
             .blog-post-inner,
             .blog-post-item,
-            .article-popular, 
+            .popular-article, 
             .featuredpost-title-title-wrapper,
             .featuredpost-thumbnail-top,
             .featuredpost-thumbnail-img,
@@ -942,21 +948,29 @@
             .blog-post-inner {
               padding: 0;
             }
+            .featuredpost-label-wrapper, 
+            .blog-post-label-wrapper {
+              padding: 40px 0 0 0;
+            }
+
+            .featuredpost-snippet-wrapper,
+            .blog-post-snippet-wrapper {
+              padding: 0 10px 20px 10px;
+            }
             .featuredpost-thumbnail-img,
             .thumbnail-main-img {
+              border: none;
               height: 250px;
             }
             .featuredpost-title-wrapper,
             .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
+              padding: 20px 0;
             }
             .featuredpost-button-wrapper,
-            .article-blog-button-wrapper {
-              padding: 20px 0 0 0;
-            }
-            #footer div {
-              font-size: 18px;
+            .blog-post-button-wrapper {
+              padding: 10px 0 40px 0;
             }
             .blog-post-item-title-wrapper {
               padding: 20px;
@@ -964,6 +978,12 @@
             .blog-post-item-body-wrapper p {
               padding: 0 20px 0 20px;
               margin-bottom: 20px;
+            }
+            .popular-thumbnail-img {
+              border: none;
+            }
+            #footer div {
+              font-size: 18px;
             }
           }
 
@@ -976,10 +996,11 @@
             .blog-article,
             .blog-post-inner,
             .blog-post-item,
-            .article-popular, 
+            .popular-article, 
             .featuredpost-title-title-wrapper,
             .featuredpost-thumbnail-top,
             .featuredpost-thumbnail-img,
+            .blog-post-thumbnail-img,
             .blog-post-thumbnail-top,
             .thumbnail-main-img,
             .blog-title-wrapper,
@@ -994,35 +1015,37 @@
               margin: 0;
             }
             .featuredpost-inner,
-            .article-blog-inner,
-            .PopularPosts img {
+            .article-blog-inner {
               padding: 0;
             }
             .popular-img-wrapper {
               margin: 20px 0 20px 0;
             }
+            .featuredpost-label-wrapper, 
+            .blog-post-label-wrapper {
+              padding: 40px 0 0 0;
+            }
             .featuredpost-snippet-wrapper,
-            .article-blog-snippet-wrapper {
-              height: 90px;
+            .blog-post-snippet-wrapper {
+              padding: 0 10px 20px 10px;
             }
             .featuredpost-thumbnail-img,
-            .thumbnail-main-img {
+            .blog-post-thumbnail-img {
+              border: none;
               height: 250px;
             }
             .featuredpost-title-wrapper,
             .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
+              padding: 20px 0;
             }
             .featuredpost-button-wrapper,
-            .article-blog-button-wrapper {
-              padding: 20px 0 0 0;
+            .blog-post-button-wrapper {
+              padding: 10px 0 40px 0;
             }
             .blog-post-item-inner {
               padding: 20px 0;
-            }
-            #footer div {
-              font-size: 18px;
             }
             .blog-post-item-title-wrapper {
               padding: 20px;
@@ -1030,6 +1053,12 @@
             .blog-post-item-body-wrapper p {
               padding: 0 20px 0 20px;
               margin-bottom: 20px;
+            }
+            .popular-thumbnail-img {
+              border: none;
+            }
+            #footer div {
+              font-size: 18px;
             }
           }
 
@@ -1042,12 +1071,12 @@
             .blog-article,
             .article-blog-inner,
             .blog-post-item,
-            .article-popular, 
+            .popular-article, 
             .featuredpost-title-title-wrapper,
             .featuredpost-thumbnail-top,
             .featuredpost-thumbnail-img,
             .blog-post-thumbnail-top,
-            .thumbnail-main-img,
+            .blog-post-thumbnail-img,
             .blog-title-wrapper,
             .blog-post-item-body-wrapper img,
             .profile-title-wrapper,
@@ -1062,36 +1091,41 @@
             .article-blog-inner {
               padding: 0;
             }
-
-            .article-featured-snippet-wrapper ,
-            .article-blog-snippet-wrapper {
-              height: 90px;
+            .featuredpost-label-wrapper, 
+            .blog-post-label-wrapper {
+              padding: 40px 0 0 0;
+            }
+            .featuredpost-snippet-wrapper,
+            .blog-post-snippet-wrapper {
+              padding: 0 10px 20px 10px;
             }
             .featuredpost-thumbnail-img,
-            .thumbnail-main-img {
+            .blog-post-thumbnail-img {
+              border: none;
               height: 250px;
             }
             .featuredpost-title-wrapper,
             .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
+              padding: 20px 0;
             }
             .featuredpost-button-wrapper,
-            .article-blog-button-wrapper {
-              padding: 20px 0 0 0;
-            }
-            .blog-post-item-inner {
-              padding: 20px 0;
+            .blog-post-button-wrapper {
+              padding: 10px 0 40px 0;
             }
             .blog-post-item-title-wrapper {
               padding: 20px;
             }
-            #footer div {
-              font-size: 18px;
-            }
             .blog-post-item-body-wrapper p {
               padding: 0 20px 0 20px;
               margin-bottom: 20px;
+            }
+            .popular-thumbnail-img {
+              border: none;
+            }
+            #footer div {
+              font-size: 18px;
             }
           }
       ]]></b:skin>
@@ -1213,8 +1247,8 @@
                     <div class='featuredpost-snippet-wrapper'>
                       <data:postSummary/>
                     </div>
-                    <div class='featured-button-wrapper'>
-                      <a class='featured-button' expr:href='data:postUrl'>もっとみる</a>
+                    <div class='featuredpost-button-wrapper'>
+                      <a class='featuredpost-button' expr:href='data:postUrl'>もっとみる</a>
                     </div>
                   </div>
                 </article>
@@ -1289,8 +1323,8 @@
                     <div class='blog-post-snippet-wrapper'>
                       <data:post.snippet/>
                     </div>
-                    <div class='article-blog-button-wrapper'>
-                      <a class='btn btn-border' expr:href='data:post.url'>もっとみる</a>
+                    <div class='blog-post-button-wrapper'>
+                      <a class='blog-post-button' expr:href='data:post.url'>もっとみる</a>
                     </div>
                   </div>
                 </article>
@@ -1311,7 +1345,7 @@
                       <data:posts.body/>
                     </div>
                   </div>
-                  <div class='blog-post-icon-wrapper'>
+                  <div class='blog-post-item-icon-wrapper'>
                     <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'>
                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                     </a>
@@ -1325,19 +1359,28 @@
                 </article>
               </b:includable>
               <b:includable id='nextprev'>
-                <div class='blog-pager' id='blog-pager'>
-                  <b:if cond='data:newerPageUrl'>
+                <b:if cond='data:newerPageUrl and data:olderPageUrl'>
+                  <div class='blog-pager' id='blog-pager' style='display: flex; justify-content: space-between;'>
                     <span id='blog-pager-newer-link'>
                       <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
                     </span>
-                  </b:if>
-                  <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-                  <b:if cond='data:olderPageUrl'>
                     <span id='blog-pager-older-link'>
                       <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
                     </span>
-                  </b:if>
-                </div>
+                  </div>
+                <b:elseif cond='data:newerPageUrl' />
+                  <div class='blog-pager' id='blog-pager'>
+                    <span id='blog-pager-newer-link'>
+                      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+                    </span>
+                  </div>
+                <b:elseif cond='data:olderPageUrl' />
+                  <div class='blog-pager' id='blog-pager'>
+                    <span id='blog-pager-older-link'>
+                      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+                    </span>
+                  </div>
+                </b:if>
               </b:includable>
             </b:widget>
           </b:section>
@@ -1420,7 +1463,7 @@
                     </b:if>
                     <div class='widget-content popular-posts'>
                       <b:loop values='data:posts' var='post'>
-                        <article class='article-popular'>
+                        <article class='popular-article'>
                           <div class='popular-post-title-wrapper'><data:post.title/></div>
                           <div class='popular-img-wrapper'>
                             <div class='popular-thumbnail'>
@@ -1428,7 +1471,7 @@
                             </div>
                           </div>
                           <div class='popular-button-wrapper'>
-                            <a class='btn btn-border' expr:href='data:post.href'>もっとみる</a>
+                            <a class='popular-button' expr:href='data:post.href'>もっとみる</a>
                           </div>
                         </article>
                       </b:loop>
