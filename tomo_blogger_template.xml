@@ -78,7 +78,7 @@
 
         nav {
           background-color: #414FA3;
-          height: 75px;
+          height: 50px;
           margin: 0 10px 10px 10px;
         }
         main {
@@ -145,9 +145,6 @@
           border-radius: 0;
           text-align: center;
         }
-        .thumbnail-top {
-          text-align: center;
-        }
 
         /** ******************** */
         /** header               */
@@ -155,7 +152,7 @@
         #header-inner {
           margin-inline-start: 20px;
         }
-        .title-wrapper h1 {
+        .header-title-wrapper h1 {
           color: #707070;
           font-size: 40px;
           line-height: 75px;
@@ -174,12 +171,12 @@
           width: 100%;
         }
         .pagelist-ul li {
-          height: 75px;
+          height: 50px;
           list-style: none;
         }
         .pagelist-ul li a {
-          font-size: 20px;
-          line-height: 75px;
+          font-size: 25px;
+          line-height: 50px;
           text-decoration: none;
         }
         .pagelist-ul li a:link,
@@ -190,47 +187,71 @@
         /** ******************** */
         /** featuredpost         */
         /** ******************** */
-        .featuredpost-title-wrapper {
+        .featuredpost-title-title-wrapper {
           align-items: center;
           background-color: #414FA3;
           display: flex;
-          height: 75px;
+          height: 50px;
           width: 840px;
         }
-        .featuredpost-title-wrapper h2 {
+        .featuredpost-title-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
+          font-size: 25px;
           padding-left: 20px;
         }
-        .article-featured {
+        .featuredpost-article {
           background-color: #ffffff;
           width: 840px;
         }
-        .article-featured-inner {
+        .featuredpost-inner {
           padding: 40px;
           width: 760px;
         }
-        .featured-label-wrapper {
+        .featuredpost-label-wrapper {
         }
-        .article-featured-post-title-wrapper {
+        .featuredpost-title-wrapper {
           font-size: 24px;
           text-align: center;
           padding: 40px 0;
         }
-        .featured-date-wrapper {
+        .featuredpost-date-wrapper {
         }
-        .article-featured-thumbnail-wrapper {
+        .featuredpost-thumbnail-wrapper {
           padding: 20px 0 20px 0;
         }
-        .article-featured-snippet-wrapper {
+        .featuredpost-thumbnail-top {
+          text-align: center;
+        }
+        .featuredpost-thumbnail-img {
+          border: 1px solid #707070;
+          object-fit: cover;
+          width: 760px;
+        }
+        .featuredpost-snippet-wrapper {
           font-size: 16px;
           line-height: 1.8;
           padding: 0 0 40px 0;
           text-align: center;
         }
-        .featured-button-wrapper {
+        .featuredpost-button-wrapper {
           width: 100%;
           text-align: center;
+        }
+        .featured-button {
+          display: inline-block;
+          height: 40px;
+          width: 160px;
+          font-size: 16px;
+          line-height: 40px;
+          text-decoration: none;
+          background: #ffffff;
+          border: 1px solid #707070;
+          border-radius: 0;
+          text-align: center;
+        }
+        .featured-button:link,
+        .featured-button:visited {
+          color: #707070;
         }
 
         /** ******************** */
@@ -243,28 +264,31 @@
           align-items: center;
           background-color: #414FA3;
           display: flex;
-          height: 75px;
+          height: 50px;
           width: 840px;
         }
         .blog-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
+          font-size: 25px;
           padding-left: 20px;
+          line-height: 25px;
         }
-        .article-blog {
+        .blog-article {
           background-color: #ffffff;
           margin: 0 0 20px 0;
           width: 840px;
         }
-        .article-blog-inner {
+        .blog-post-inner {
           padding: 40px;
           width: 760px;
         }
-        .article-blog-label-wrapper {
+        .blog-post-label-wrapper,
+        .blog-post-item-label-wrapper {
           text-align: center;
           width: 100%;
         }
-        .blog-label {
+        .blog-post-label,
+        .blog-post-label {
           border: 1px solid #707070;
           border-radius: 0;
           background: #ffffff;
@@ -276,17 +300,21 @@
           padding: 0 10px;
           text-align: center;
         }
-        .article-blog-post-title-wrapper {
+        .blog-post-title-wrapper {
           font-size: 24px;
           padding: 40px 0;
           text-align: center;
         }
-        .article-blog-date-wrapper {
+        .blog-post-date-wrapper,
+        .blog-post-item-date-wrapper {
           font-size: 14px;
           text-align: center;
         }
-        .article-blog-thumbnail-wrapper {
+        .blog-post-thumbnail-wrapper {
           padding: 20px 0 20px 0;
+        }
+        .blog-post-thumbnail-top {
+          text-align: center;
         }
         .article-blog-snippet-wrapper {
           font-size: 16px;
@@ -302,41 +330,40 @@
         .blog-item-inner {
           margin-top: 0;
         }
-        .article-blog-item {
+        .blog-post-item {
           height: auto;
         }
-        .article-blog-item-inner {
-          padding: 40px 0;
+        .blog-post-item-inner {
           text-align: center;
         }
         .blog-post-item-title-wrapper {
-          font-size: 24px;
+          font-size: 30px;
           padding: 40px;
         }
-        .blog-body-wrapper {
+        .blog-post-item-body-wrapper {
           padding: 20px 0;
           text-align: left;
         }
-        .blog-body-wrapper h2 {
+        .blog-post-item-body-wrapper h2 {
           background-color: #414FA3;
           display: flex;
-          height: 50px;
           color: #ffffff;
-          font-size: 24px;
-          line-height: 50px;
+          font-size: 25px;
+          line-height: 25px;
           letter-spacing: 1.6px;
           margin: 2em 0;
           padding: 10px 40px;
         }
 
-        .blog-body-wrapper h3 {
+        .blog-post-item-body-wrapper h3 {
           position: relative;
           padding: 15px 0 15px 20px;
           margin-left: -16px;
-          font-size: 21px;
+          font-size: 20px;
+          line-height: 20px;
           margin: 1em 5px;
         }
-        .blog-body-wrapper h3:before {
+        .blog-post-item-body-wrapper h3:before {
           content: "";
           position: absolute;
           top: 0;
@@ -347,14 +374,14 @@
           background: #414FA3;
         }
 
-        .blog-body-wrapper h4 {
+        .blog-post-item-body-wrapper h4 {
           position: relative;
           padding: 10px 0 10px 40px;
           margin-left: -16px;
           font-size: 18px;
           margin: 1em 5px;
         }
-        .blog-body-wrapper h4:before {
+        .blog-post-item-body-wrapper h4:before {
           content: "";
           position: absolute;
           top: 0;
@@ -365,10 +392,10 @@
           background: #414FA3;
         }
 
-        .blog-body-wrapper img {
+        .blog-post-item-body-wrapper img {
           object-fit: cover;
         }
-        .blog-body-wrapper p {
+        .blog-post-item-body-wrapper p {
           padding: 0 40px 0 40px;
           font-size: 16px;
           line-height: 1.8;
@@ -567,7 +594,7 @@
         /** ******************** */
         .profile-title-wrapper {
           width: 380px;
-          height: 55px;
+          height: 50px;
           background-color: #414FA3;
           display: flex;
           align-items: center;
@@ -575,8 +602,9 @@
         }
         .profile-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
+          font-size: 25px;
           margin: 0 20px 0 20px;
+          line-height: 25px;
         }
         .widget-conent-profile {
           background-color: #ffffff;
@@ -645,15 +673,16 @@
           margin: 20px 0 0 0;
         }
         .popular-title-wrapper {
-          height: 55px;
+          height: 50px;
           background-color: #414FA3;
           display: flex;
           align-items: center;
         }
         .popular-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
+          font-size: 25px;
           margin: 0 20px 0 20px;
+          ligne-height: 25px;
         }
         .article-popular {
           background-color: #ffffff;
@@ -688,16 +717,16 @@
         /** label                */
         /** ******************** */
         .label-title-wrapper {
-          height: 55px;
+          height: 50px;
           background-color: #414FA3;
           display: flex;
           align-items: center;
-          margin: 0 10px 0 0;
         }
         .label-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
+          font-size: 25px;
           margin: 0 20px 0 20px;
+          line-height: 25px;
         }
         .label-label-wrapper {
           background-color: #ffffff;
@@ -732,8 +761,8 @@
         }
         .blogarchive-title-warapper h2 {
           color: #ffffff;
-          font-size: 30px;
-          line-height: 50px;
+          font-size: 25px;
+          line-height: 25px;
         }
         .blogarchive-contents-warapper {
           color: #ffffff;
@@ -768,8 +797,8 @@
         }
         .blogasearch-title-wrapper h2 {
           color: #ffffff;
-          font-size: 30px;
-          line-height: 50px;
+          font-size: 25px;
+          line-height: 25px;
         }
         .gsc-input {
           padding-left: 20px;
@@ -822,9 +851,9 @@
             height: 50px
           }
           .twitter-title-wrapper h2 {
-            font-size: 30px;
+            font-size: 25px;
             color: #ffffff;
-            line-height: 50px;
+            line-height: 25px;
           }
           .twitter-contents-wrapper {
             margin:0 20px 20px 20px;
@@ -887,17 +916,19 @@
             nav,
             main,
             aside,
-            .article-featured,
-            .article-featured-inner,
-            .article-blog,
-            .article-blog-inner,
-            .article-blog-item,
+            .featuredpost-article,
+            .featuredpost-inner,
+            .blog-article,
+            .blog-post-inner,
+            .blog-post-item,
             .article-popular, 
-            .featuredpost-title-wrapper,
-            .thumbnail-top,
+            .featuredpost-title-title-wrapper,
+            .featuredpost-thumbnail-top,
+            .featuredpost-thumbnail-img,
+            .blog-post-thumbnail-top,
             .thumbnail-main-img,
             .blog-title-wrapper,
-            .blog-body-wrapper img,
+            .blog-post-item-body-wrapper img,
             .profile-title-wrapper,
             .contents-footer-item,
             .popular-thumbnail-img {
@@ -907,15 +938,16 @@
             aside {
               margin: 0;
             }
-            .article-featured-inner,
-            .article-blog-inner {
+            .featuredpost-inner,
+            .blog-post-inner {
               padding: 0;
             }
+            .featuredpost-thumbnail-img,
             .thumbnail-main-img {
               height: 250px;
             }
-            .article-featured-post-title-wrapper,
-            .article-blog-post-title-wrapper {
+            .featuredpost-title-wrapper,
+            .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
             }
@@ -929,25 +961,29 @@
             .blog-post-item-title-wrapper {
               padding: 20px;
             }
-
-            
+            .blog-post-item-body-wrapper p {
+              padding: 0 20px 0 20px;
+              margin-bottom: 20px;
+            }
           }
 
           @media screen and (max-width: 360px) {
             nav,
             main,
             aside,
-            .article-featured,
-            .article-featured-inner,
-            .article-blog,
-            .article-blog-inner,
-            .article-blog-item,
+            .featuredpost-article,
+            .featuredpost-inner,
+            .blog-article,
+            .blog-post-inner,
+            .blog-post-item,
             .article-popular, 
-            .featuredpost-title-wrapper,
-            .thumbnail-top,
+            .featuredpost-title-title-wrapper,
+            .featuredpost-thumbnail-top,
+            .featuredpost-thumbnail-img,
+            .blog-post-thumbnail-top,
             .thumbnail-main-img,
             .blog-title-wrapper,
-            .blog-body-wrapper img,
+            .blog-post-item-body-wrapper img,
             .profile-title-wrapper,
             .contents-footer-item,
             .popular-thumbnail-img {
@@ -957,7 +993,7 @@
             aside {
               margin: 0;
             }
-            .article-featured-inner,
+            .featuredpost-inner,
             .article-blog-inner,
             .PopularPosts img {
               padding: 0;
@@ -965,16 +1001,16 @@
             .popular-img-wrapper {
               margin: 20px 0 20px 0;
             }
-
-            .article-featured-snippet-wrapper ,
+            .featuredpost-snippet-wrapper,
             .article-blog-snippet-wrapper {
               height: 90px;
             }
+            .featuredpost-thumbnail-img,
             .thumbnail-main-img {
               height: 250px;
             }
-            .article-featured-post-title-wrapper,
-            .article-blog-post-title-wrapper {
+            .featuredpost-title-wrapper,
+            .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
             }
@@ -982,7 +1018,7 @@
             .article-blog-button-wrapper {
               padding: 20px 0 0 0;
             }
-            .article-blog-item-inner {
+            .blog-post-item-inner {
               padding: 20px 0;
             }
             #footer div {
@@ -991,23 +1027,29 @@
             .blog-post-item-title-wrapper {
               padding: 20px;
             }
+            .blog-post-item-body-wrapper p {
+              padding: 0 20px 0 20px;
+              margin-bottom: 20px;
+            }
           }
 
           @media screen and (max-width: 320px) {
             nav,
             main,
             aside,
-            .article-featured,
-            .article-featured-inner,
-            .article-blog,
+            .featuredpost-article,
+            .featuredpost-inner,
+            .blog-article,
             .article-blog-inner,
-            .article-blog-item,
+            .blog-post-item,
             .article-popular, 
-            .featuredpost-title-wrapper,
-            .thumbnail-top,
+            .featuredpost-title-title-wrapper,
+            .featuredpost-thumbnail-top,
+            .featuredpost-thumbnail-img,
+            .blog-post-thumbnail-top,
             .thumbnail-main-img,
             .blog-title-wrapper,
-            .blog-body-wrapper img,
+            .blog-post-item-body-wrapper img,
             .profile-title-wrapper,
             .contents-footer-item  {
               width: 320px;
@@ -1016,7 +1058,7 @@
             aside {
               margin: 0;
             }
-            .article-featured-inner,
+            .featuredpost-inner,
             .article-blog-inner {
               padding: 0;
             }
@@ -1025,11 +1067,12 @@
             .article-blog-snippet-wrapper {
               height: 90px;
             }
+            .featuredpost-thumbnail-img,
             .thumbnail-main-img {
               height: 250px;
             }
-            .article-featured-post-title-wrapper,
-            .article-blog-post-title-wrapper {
+            .featuredpost-title-wrapper,
+            .blog-post-title-wrapper {
               font-size: 20px;
               margin: 0 20px 0 20px;
             }
@@ -1037,7 +1080,7 @@
             .article-blog-button-wrapper {
               padding: 20px 0 0 0;
             }
-            .article-blog-item-inner {
+            .blog-post-item-inner {
               padding: 20px 0;
             }
             .blog-post-item-title-wrapper {
@@ -1045,6 +1088,10 @@
             }
             #footer div {
               font-size: 18px;
+            }
+            .blog-post-item-body-wrapper p {
+              padding: 0 20px 0 20px;
+              margin-bottom: 20px;
             }
           }
       ]]></b:skin>
@@ -1072,14 +1119,14 @@
             <b:includable id='main'>
               <!--No header image -->
               <div id='header-inner'>
-                <div class='title-wrapper'>
+                <div class='header-title-wrapper'>
                   <h1><b:include name='title'/></h1>
                 </div>
               </div>
             </b:includable>
             <b:includable id='description'>
-              <div class='description-wrapper'>
-                <p class='description'><span><data:description/></span></p>
+              <div class='header-description-wrapper'>
+                <p class='header-description'><span><data:description/></span></p>
               </div>
             </b:includable>
             <b:includable id='title'>
@@ -1138,9 +1185,9 @@
               </b:widget-settings>
               <b:includable id='main'>
                 <b:if cond='data:blog.pageType != &quot;item&quot;'>
-                  <div class='featuredpost-inner'>
+                  <div class='featuredpost-title-inner'>
                     <b:if cond='data:title != &quot;&quot;'>
-                      <div class='featuredpost-title-wrapper'>
+                      <div class='featuredpost-title-title-wrapper'>
                         <h2><data:title/></h2>
                       </div>
                     </b:if>
@@ -1149,25 +1196,25 @@
                 </b:if>
               </b:includable>
               <b:includable id='content'>
-                <article class='article-featured'>
-                  <div class='article-featured-inner'>
-                    <div class='featured-label-wrapper'/>
+                <article class='featuredpost-article'>
+                  <div class='featuredpost-inner'>
+                    <div class='featuredpost-label-wrapper'/>
                     <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
-                      <div class='article-featured-post-title-wrapper'><span itemprop='headline'><data:postTitle/></span></div>
+                      <div class='featuredpost-title-wrapper'><span itemprop='headline'><data:postTitle/></span></div>
                     </b:if>
-                    <div class='featured-date-wrapper'/>
+                    <div class='featuredpost-date-wrapper'/>
                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
-                      <div class='article-featured-thumbnail-wrapper'>
-                        <div class='thumbnail-top'>
-                          <img class='thumbnail-main-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
+                      <div class='featuredpost-thumbnail-wrapper'>
+                        <div class='featuredpost-thumbnail-top'>
+                          <img class='featuredpost-thumbnail-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
                         </div>
                       </div>
                     </b:if>
-                    <div class='article-featured-snippet-wrapper'>
+                    <div class='featuredpost-snippet-wrapper'>
                       <data:postSummary/>
                     </div>
                     <div class='featured-button-wrapper'>
-                      <a class='btn btn-border' expr:href='data:postUrl'>もっとみる</a>
+                      <a class='featured-button' expr:href='data:postUrl'>もっとみる</a>
                     </div>
                   </div>
                 </article>
@@ -1215,7 +1262,7 @@
                     <b:include name='nextprev'/>
                   </div>
                 <b:else/>
-                  <div class='article-blog-item-inner'>
+                  <div class='blog-post-item-inner'>
                     <b:include data='data:posts[0]' name='post-item'/>
                   </div>
                   <b:include name='nextprev'/>
@@ -1223,23 +1270,23 @@
               </b:includable>
               <!-- post パーツ -->
               <b:includable id="post" var="post">
-                <article class="article-blog">
-                  <div class='article-blog-inner'>
-                    <div class='article-blog-label-wrapper'>
+                <article class="blog-article">
+                  <div class='blog-post-inner'>
+                    <div class='blog-post-label-wrapper'>
                       <b:loop values='data:post.labels' var='label'>
-                        <span class='blog-label'><data:label.name/></span>
+                        <span class='blog-post-label'><data:label.name/></span>
                       </b:loop>
                     </div>
-                    <div class='article-blog-post-title-wrapper'><span itemprop='headline'><data:post.title/></span></div>
-                    <div class='article-blog-date-wrapper'>
-                        <span class='published' expr:content='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></span>
+                    <div class='blog-post-title-wrapper'><span itemprop='headline'><data:post.title/></span></div>
+                    <div class='blog-post-date-wrapper'>
+                        <span expr:content='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></span>
                     </div>
-                    <div class='article-blog-thumbnail-wrapper'>
-                      <div class='thumbnail-top'>
-                        <img class='thumbnail-main-img' expr:src='data:post.firstImageUrl' height='300' layout='responsive' width='800'/>
+                    <div class='blog-post-thumbnail-wrapper'>
+                      <div class='blog-post-thumbnail-top'>
+                        <img class='blog-post-thumbnail-img' expr:src='data:post.firstImageUrl' height='300' layout='responsive' width='800'/>
                       </div>
                     </div>
-                    <div class='article-blog-snippet-wrapper'>
+                    <div class='blog-post-snippet-wrapper'>
                       <data:post.snippet/>
                     </div>
                     <div class='article-blog-button-wrapper'>
@@ -1249,22 +1296,22 @@
                 </article>
               </b:includable>
               <b:includable id='post-item' var='posts'>
-                <article class='article-blog-item'>
-                  <div class='article-blog-item-inner'>
-                    <div class='article-blog-label-wrapper'>
+                <article class='blog-post-item'>
+                  <div class='blog-post-item-inner'>
+                    <div class='blog-post-item-label-wrapper'>
                       <b:loop values='data:posts.labels' var='label'>
-                        <span class='blog-label'><data:label.name/></span>
+                        <span class='blog-post-item-label'><data:label.name/></span>
                       </b:loop>
                     </div>
                     <div class='blog-post-item-title-wrapper'><h1 itemprop='headline'><data:posts.title/></h1></div>
-                    <div class='article-blog-date-wrapper'>
-                        <span class='published' expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp/></span>
+                    <div class='blog-post-item-date-wrapper'>
+                        <span expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp/></span>
                     </div>
-                    <div class='blog-body-wrapper'>
+                    <div class='blog-post-item-body-wrapper'>
                       <data:posts.body/>
                     </div>
                   </div>
-                  <div class='blog-icon-wrapper'>
+                  <div class='blog-post-icon-wrapper'>
                     <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'>
                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                     </a>
