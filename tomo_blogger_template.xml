@@ -22,8 +22,6 @@
         <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
       </b:if>
 
-      <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
-
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
         /** ******************** */
@@ -914,6 +912,32 @@
             line-height: 1.8em;
           }
 
+          pre.prettyprint {
+            font-size:12px;
+            word-wrap:normal;
+            margin: 20px;
+            padding: 20px;
+            overflow-x: scroll;
+            font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace, sans-serif;
+            background-color: #0E101E;   /* 背景色 */
+            border-top-left-radius: 0;  /* テーマの角丸の設定を上書き */  
+            border-top-right-radius: 0; 
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+          pre.high {
+            height:12em;
+          }
+          .prettyprint ol.linenums > li {
+            list-style-type: decimal;
+            border-left:solid 1px #EBB15E; 
+            padding-left:0.8em;
+            color: #999; 
+          }
+          .prettyprint ol{
+            margin: 0 0 0 20px;
+          }
+
           @media screen and (max-width: 480px) {
             nav,
             main,
@@ -984,7 +1008,7 @@
             }
           }
 
-          @media screen and (max-width: 360px) {
+          @media screen and (min-width: 360px) and (max-width: 479px)  {
             nav,
             main,
             aside,
@@ -1066,14 +1090,14 @@
             }
           }
 
-          @media screen and (max-width: 320px) {
+          @media screen and (min-width: 320px)  and (max-width: 359px)  {
             nav,
             main,
             aside,
             .featuredpost-article,
             .featuredpost-inner,
             .blog-article,
-            .article-blog-inner,
+            .blog-post-inner,
             .blog-post-item,
             .popular-article, 
             .featuredpost-title-title-wrapper,
@@ -1093,7 +1117,7 @@
               margin: 0;
             }
             .featuredpost-inner,
-            .article-blog-inner {
+            .blog-post-inner {
               padding: 0;
             }
             .featuredpost-label-wrapper, 
@@ -1126,6 +1150,9 @@
               padding: 0 20px 0 20px;
               margin-bottom: 20px;
             }
+            .popular-img-wrapper {
+              margin: 20px 0;
+            }
             .popular-thumbnail-img {
               border: none;
             }
@@ -1134,6 +1161,9 @@
             }
           }
       ]]></b:skin>
+
+      <script async src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian'></script>
+
     </head>
     <body>
       <b:class cond='data:view.isPreview' name='preview'/>
