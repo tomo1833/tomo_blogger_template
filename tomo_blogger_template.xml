@@ -256,6 +256,9 @@
           padding: 40px;
           width: 760px;
         }
+        .blog-post-item {
+          padding: 40px 0;
+        }
         .blog-post-label-wrapper,
         .blog-post-item-label-wrapper {
           text-align: center;
@@ -585,7 +588,7 @@
         }
         .blog-post-item-body-wrapper .blog-card .blog-card-title {
           padding: 20px;
-          font-size: 24px;
+          font-size: 20px;
         }
         .blog-post-item-body-wrapper table {
           border-collapse: collapse;
@@ -625,6 +628,13 @@
         }
         .blog-post-item-body-wrapper .non {
           background:#ffffff
+        }
+        #comment-holder {
+          padding: 40px;
+        }
+        #comment-holder li {
+          border: 1px solid #f5f5f5;
+          padding: 20px;
         }
 
         /** ******************** */
@@ -1480,36 +1490,34 @@
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <!-- ブログ                                   -->
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
-              <b:widget-settings>
-                <b:widget-setting name='commentLabel'>comments</b:widget-setting>
-                <b:widget-setting name='showShareButtons'>true</b:widget-setting>
-                <b:widget-setting name='authorLabel'>Posted by</b:widget-setting>
-                <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-                <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                <b:widget-setting name='timestampLabel'>on</b:widget-setting>
-                <b:widget-setting name='reactionsLabel'/>
-                <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
-                <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                <b:widget-setting name='showLocation'>true</b:widget-setting>
-                <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-                <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
-                <b:widget-setting name='showDateHeader'>true</b:widget-setting>
-                <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
-                <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
-                <b:widget-setting name='postLocationLabel'>Location:</b:widget-setting>
-                <b:widget-setting name='showAuthor'>false</b:widget-setting>
-                <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
-                <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-                <b:widget-setting name='showLabels'>true</b:widget-setting>
-                <b:widget-setting name='postLabelsLabel'>Labels:</b:widget-setting>
-                <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-                <b:widget-setting name='showReactions'>false</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main' var='top'>
-                <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                <b:widget-settings>
+                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                  <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
+                  <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                  <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                  <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
+                  <b:widget-setting name='showAuthor'>false</b:widget-setting>
+                  <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+                  <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                  <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+                  <b:widget-setting name='timestampLabel'/>
+                  <b:widget-setting name='reactionsLabel'/>
+                  <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                  <b:widget-setting name='showLabels'>true</b:widget-setting>
+                  <b:widget-setting name='showLocation'>true</b:widget-setting>
+                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                  <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                  <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+                  <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                  <b:widget-setting name='showReactions'>false</b:widget-setting>
+                </b:widget-settings>
+
+                <b:includable id='main' var='top'>
+                  <b:if cond='data:blog.pageType != &quot;item&quot;'>
+
                   <div class='blog-inner'>
                     <div class='blog-title-wrapper'><h2>最近の投稿</h2></div>
                     <b:loop values='data:posts' var='post'>
@@ -1551,35 +1559,40 @@
                   </div>
                 </article>
               </b:includable>
-              <b:includable id='post-item' var='posts'>
+              <b:includable id='post-item' var='post'>
                 <article class='blog-post-item'>
                   <div class='blog-post-item-inner'>
                     <div class='blog-post-item-label-wrapper'>
-                      <b:loop values='data:posts.labels' var='label'>
+                      <b:loop values='data:post.labels' var='label'>
                         <span class='blog-post-item-label'><data:label.name/></span>
                       </b:loop>
                     </div>
-                    <div class='blog-post-item-title-wrapper'><h1 itemprop='headline'><data:posts.title/></h1></div>
+                    <div class='blog-post-item-title-wrapper'><h1 itemprop='headline'><data:post.title/></h1></div>
                     <div class='blog-post-item-date-wrapper'>
-                        <span expr:content='data:posts.timestamp.iso8601' itemprop='datePublished'><data:posts.timestamp/></span>
+                        <span expr:content='data:post.timestamp.iso8601' itemprop='datePublished'><data:post.timestamp/></span>
                     </div>
                     <div class='blog-post-item-body-wrapper'>
-                      <data:posts.body/>
+                      <data:post.body/>
                     </div>
                   </div>
                   <div class='blog-post-item-icon-wrapper'>
-                    <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'>
+                    <a expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'>
                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-IiJd8RbAKsU/YRIrQyDrzwI/AAAAAAAAETM/Yud2J6HApS0zKjChqheSLO_rjXowNOPBACLcBGAsYHQ/s320/Twitter%2Bsocial%2Bicons%2B-%2Bcircle%2B-%2Bblue.png' width='60'/>  
                     </a>
-                    <a expr:href='data:posts.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
+                    <a expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
                        <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-4r3N-Alsl7Y/YRIsQOOamrI/AAAAAAAAETU/qeZdQ2DXVMAu6F_mPyEg1hJb7ZcUNJAgQCLcBGAsYHQ/s218/f_logo_RGB-Blue_100.png' width='60'/>  
                     </a>
                     <a expr:href='&quot;https://social-plugins.line.me/lineit/share?url=&quot; + data:blog.url ' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'>
                       <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-J7ZeZVteWps/YRIoJCbjLvI/AAAAAAAAETE/ANQbsvQ3d8ASDuflWaarppplSaUDOMUuQCLcBGAsYHQ/s1001/LINE_Brand_icon.png' width='60'/>  
                     </a>
                   </div>
+
+                  <b:if cond='data:post.allowComments'>
+                    <b:include data='post' name='comment_picker'/>
+                  </b:if>
                 </article>
               </b:includable>
+
               <b:includable id='nextprev'>
                 <b:if cond='data:newerPageUrl and data:olderPageUrl'>
                   <div class='blog-pager' id='blog-pager' style='display: flex; justify-content: space-between;'>
