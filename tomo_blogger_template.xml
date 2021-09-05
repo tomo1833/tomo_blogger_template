@@ -4,7 +4,7 @@
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
       <meta content='width=device-width, initial-scale=1' name='viewport'/>
       <title><data:view.title.escaped/></title>
-
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css" />
 
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
@@ -801,7 +801,7 @@
         }
         .label-label a:link,
         .label-label a:visited {
-          color: #000000;
+          color: #ffffff;
         }
 
         /** ******************** */
@@ -964,6 +964,18 @@
           padding: 5px;
         }
 
+        .table-of-contents li a {
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+    
+        .table-of-contents li a {
+          text-decoration: none;
+          color: #000000;
+        }
+        .table-of-contents li a:hover {
+          text-decoration: underline;
+        }
         pre.prettyprint {
           font-size:12px;
           word-wrap:normal;
@@ -1107,6 +1119,15 @@
           .blog-post-item-body-wrapper .col2 {
             text-align: right;
           }
+
+          .blog-post-item-body-wrapper .blog-card a {
+            flex-direction: column;
+          }
+
+          .blog-post-item-body-wrapper .blog-card .blog-card-img img {
+            width: 100%
+          }
+
           .popular-thumbnail-img {
             border: none;
           }
@@ -1246,6 +1267,14 @@
             text-align: right;
           }
 
+          .blog-post-item-body-wrapper .blog-card a {
+            flex-direction: column;
+          }
+
+          .blog-post-item-body-wrapper .blog-card .blog-card-img img {
+            width: 100%
+          }
+
           .popular-thumbnail-img {
             border: none;
           }
@@ -1372,6 +1401,14 @@
           .blog-post-item-body-wrapper .col1, 
           .blog-post-item-body-wrapper .col2 {
             text-align: right;
+          }
+
+          .blog-post-item-body-wrapper .blog-card a {
+            flex-direction: column;
+          }
+
+          .blog-post-item-body-wrapper .blog-card .blog-card-img img {
+            width: 100%
           }
 
           .popular-img-wrapper {
