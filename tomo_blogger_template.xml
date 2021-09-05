@@ -1002,6 +1002,40 @@
           margin: 0 0 0 20px;
         }
 
+
+        #page_top {
+          width: 50px;
+          height: 50px;
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          background: #3f98ef;
+          opacity: 0.6;
+        }
+        #page_top a {
+          position: relative;
+          display: block;
+          width: 50px;
+          height: 50px;
+          text-decoration: none;
+        }
+        #page_top a::before {
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          content: '\f102';
+          font-size: 25px;
+          color: #fff;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          text-align: center;
+        }
+
         @media screen and (max-width: 480px) {
           nav,
           main,
@@ -1424,7 +1458,6 @@
           #comments {
             padding: 10px 0;
           }
-
         }
       ]]></b:skin>
 
@@ -1742,6 +1775,9 @@
                           <a href='https://www.instagram.com/tomo_1833/' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
                           </a>
+                          <a href='https://www.youtube.com/channel/UCYS5qwE4sDis2XOUC2JUktg' target='_blank'>
+                            <img border="0" width="60" data-original-height="64" data-original-width="64" src="https://1.bp.blogspot.com/-9SLVIcEpc-w/YTRl3-4AdtI/AAAAAAAAEiM/3Cd_XYHmRIozTJBjbHDoRBRZV0rcXSHZwCLcBGAsYHQ/s320/youtube_social_circle_red.png"/>
+                          </a>
                           <a href='https://github.com/tomo1833' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png' width='60'/>  
                           </a>
@@ -1989,5 +2025,48 @@
           </b:widget>
         </b:section>
       </footer>
+
+      <div id="page_top"><a href="#"></a></div>
+      <script type="text/javascript">
+      function fadeIn(node, duration) {
+        // display: noneでないときは何もしない
+        if (getComputedStyle(node).display !== 'none') return;
+        
+        // style属性にdisplay: noneが設定されていたとき
+        if (node.style.display === 'none') {
+          node.style.display = '';
+        } else {
+          node.style.display = 'block';
+        }
+        node.style.opacity = 0;
+
+        var start = performance.now();
+        
+        requestAnimationFrame(function tick(timestamp) {
+          // イージング計算式（linear）
+          var easing = (timestamp - start) / duration;
+
+          // opacityが1を超えないように
+          node.style.opacity = Math.min(easing, 1);
+
+          // opacityが1より小さいとき
+          if (easing < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            node.style.opacity = '';
+          }
+        });
+      }
+
+      $(window).scroll(function () {
+        var now = $(window).scrollTop();
+      if (now > 200) {
+        fadeIn(document.querySelector('#page_top'), 300)
+      } else {
+        $('#page_top').fadeOut('slow');
+      }
+      });
+      </script>
+
     </body>
   </html>
