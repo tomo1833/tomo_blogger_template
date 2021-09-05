@@ -1036,6 +1036,35 @@
           text-align: center;
         }
 
+ 
+.fadein {
+    animation: fadein 2s;
+}
+ 
+.fadeout {
+    animation: fadeout 2s;
+    animation-fill-mode: forwards;
+}
+ 
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+ 
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
         @media screen and (max-width: 480px) {
           nav,
           main,
@@ -2027,46 +2056,30 @@
       </footer>
 
       <div id="page_top"><a href="#"></a></div>
-      <script type="text/javascript">
-      function fadeIn(node, duration) {
-        // display: noneでないときは何もしない
-        if (getComputedStyle(node).display !== 'none') return;
-        
-        // style属性にdisplay: noneが設定されていたとき
-        if (node.style.display === 'none') {
-          node.style.display = '';
+      <script type='text/javascript'>
+      const idTarget = document.getElementById('page_top')
+      const classList = idTarget.classList
+      
+      const onFadein = () => {
+          classList.add('fadein')
+          classList.remove('fadeout')
+      }
+ 
+      const onFadeout = () => {
+          classList.add('fadeout')
+          classList.remove('fadein')
+      }
+
+      window.onscroll = () => {
+        scroll_position = window.pageYOffset;
+        if (scroll_position &gt; window.innerHeight ) {
+          onFadein();
         } else {
-          node.style.display = 'block';
+          onFadeout();
         }
-        node.style.opacity = 0;
-
-        var start = performance.now();
-        
-        requestAnimationFrame(function tick(timestamp) {
-          // イージング計算式（linear）
-          var easing = (timestamp - start) / duration;
-
-          // opacityが1を超えないように
-          node.style.opacity = Math.min(easing, 1);
-
-          // opacityが1より小さいとき
-          if (easing < 1) {
-            requestAnimationFrame(tick);
-          } else {
-            node.style.opacity = '';
-          }
-        });
-      }
-
-      $(window).scroll(function () {
-        var now = $(window).scrollTop();
-      if (now > 200) {
-        fadeIn(document.querySelector('#page_top'), 300)
-      } else {
-        $('#page_top').fadeOut('slow');
-      }
-      });
+      };
       </script>
+              
 
     </body>
   </html>
