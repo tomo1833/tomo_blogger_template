@@ -4,7 +4,7 @@
       <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
       <meta content='width=device-width, initial-scale=1' name='viewport'/>
       <title><data:view.title.escaped/></title>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css" />
+      <link href='https://use.fontawesome.com/releases/v5.6.4/css/all.css' rel='stylesheet'/>
 
       <!-- CSS 設定 -->
       <b:skin><![CDATA[
@@ -1490,7 +1490,7 @@
         }
       ]]></b:skin>
 
-      <script async src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian'></script>
+      <script async='async' src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian'/>
 
     </head>
     <body>
@@ -1544,6 +1544,7 @@
             <!-- ページ（ナビ)                            -->
             <!-- = = = = = = = = = = = = = = = = = = = =  -->
             <b:widget-settings>
+              <b:widget-setting name='pageListJson'><![CDATA[{'link0': {'href': 'http://blogstart40.blogspot.com/', 'title': '\u30db\u30fc\u30e0', 'position': 0}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>ホーム</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -1621,32 +1622,31 @@
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
                 <!-- ブログ                                   -->
                 <!-- = = = = = = = = = = = = = = = = = = = =  -->
-                <b:widget-settings>
-                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                  <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
-                  <b:widget-setting name='showShareButtons'>true</b:widget-setting>
-                  <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                  <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
-                  <b:widget-setting name='showAuthor'>false</b:widget-setting>
-                  <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-                  <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                  <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
-                  <b:widget-setting name='timestampLabel'/>
-                  <b:widget-setting name='reactionsLabel'/>
-                  <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
-                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                  <b:widget-setting name='showLabels'>true</b:widget-setting>
-                  <b:widget-setting name='showLocation'>true</b:widget-setting>
-                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-                  <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                  <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
-                  <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-                  <b:widget-setting name='showReactions'>false</b:widget-setting>
-                </b:widget-settings>
-
-                <b:includable id='main' var='top'>
+              <b:widget-settings>
+                <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                <b:widget-setting name='authorLabel'>By</b:widget-setting>
+                <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+                <b:widget-setting name='showAuthor'>false</b:widget-setting>
+                <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+                <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                <b:widget-setting name='reactionsLabel'/>
+                <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                <b:widget-setting name='showLabels'>true</b:widget-setting>
+                <b:widget-setting name='showLocation'>true</b:widget-setting>
+                <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                <b:widget-setting name='showReactions'>false</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main' var='top'>
                   <b:if cond='data:blog.pageType != &quot;item&quot;'>
 
                   <div class='blog-inner'>
@@ -1663,7 +1663,10 @@
                   <b:include name='nextprev'/>
                 </b:if>
               </b:includable>
-              <!-- post パーツ -->
+
+
+
+
               <b:includable id="post" var="post">
                 <article class="blog-article">
                   <div class='blog-post-inner'>
@@ -1805,7 +1808,7 @@
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XLleJgiK0ok/YRIxsN2yB4I/AAAAAAAAETc/Vkv9o5Il04YhM0sXKGsi9DdaDrVIqknigCLcBGAsYHQ/s320/Instagram_Glyph_Gradient_RGB.png' width='60'/>  
                           </a>
                           <a href='https://www.youtube.com/channel/UCYS5qwE4sDis2XOUC2JUktg' target='_blank'>
-                            <img border="0" width="60" data-original-height="64" data-original-width="64" src="https://1.bp.blogspot.com/-9SLVIcEpc-w/YTRl3-4AdtI/AAAAAAAAEiM/3Cd_XYHmRIozTJBjbHDoRBRZV0rcXSHZwCLcBGAsYHQ/s320/youtube_social_circle_red.png"/>
+                            <img border='0' data-original-height='64' data-original-width='64' src='https://1.bp.blogspot.com/-9SLVIcEpc-w/YTRl3-4AdtI/AAAAAAAAEiM/3Cd_XYHmRIozTJBjbHDoRBRZV0rcXSHZwCLcBGAsYHQ/s320/youtube_social_circle_red.png' width='60'/>
                           </a>
                           <a href='https://github.com/tomo1833' target='_blank'>
                             <img border='0' data-original-height='1000' data-original-width='1001' height='60' src='https://1.bp.blogspot.com/-XIA1wvbwkyw/YRIykhsZsTI/AAAAAAAAETk/I1lbBpl_9d8nsgox1xxQnIizzUlOyneOgCLcBGAsYHQ/s320/GitHub-Mark-120px-plus.png' width='60'/>  
@@ -2055,22 +2058,22 @@
         </b:section>
       </footer>
 
-      <div id="page_top"><a href="#"></a></div>
+      <div id='page_top'><a href='#'/></div>
       <script type='text/javascript'>
-      const idTarget = document.getElementById('page_top')
+      const idTarget = document.getElementById(&#39;page_top&#39;)
       const classList = idTarget.classList
       
-      const onFadein = () => {
-          classList.add('fadein')
-          classList.remove('fadeout')
+      const onFadein = () =&gt; {
+          classList.add(&#39;fadein&#39;)
+          classList.remove(&#39;fadeout&#39;)
       }
  
-      const onFadeout = () => {
-          classList.add('fadeout')
-          classList.remove('fadein')
+      const onFadeout = () =&gt; {
+          classList.add(&#39;fadeout&#39;)
+          classList.remove(&#39;fadein&#39;)
       }
 
-      window.onscroll = () => {
+      window.onscroll = () =&gt; {
         scroll_position = window.pageYOffset;
         if (scroll_position &gt; window.innerHeight ) {
           onFadein();
