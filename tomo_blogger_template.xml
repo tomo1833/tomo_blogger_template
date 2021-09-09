@@ -323,23 +323,25 @@
           padding: 20px 0;
           text-align: left;
         }
+        /* 本文の見出し */
         .blog-post-item-body-wrapper h2 {
           background-color: #414FA3;
-          display: flex;
           color: #ffffff;
-          font-size: 25px;
+          display: flex;
+          font-size: 24px;
+          font-weight: 600;
           line-height: 25px;
           letter-spacing: 1.6px;
-          margin: 2em 0;
+          margin: 60px 0 20px 0;
           padding: 10px 40px;
         }
         .blog-post-item-body-wrapper h3 {
-          position: relative;
-          padding: 15px 0 15px 20px;
-          margin-left: -16px;
           font-size: 20px;
+          font-weight: 600;
           line-height: 20px;
-          margin: 1em 5px;
+          margin: 40px 15px 20px 15px;
+          padding: 15px 0 15px 25px;
+          position: relative;
         }
         .blog-post-item-body-wrapper h3:before {
           content: "";
@@ -351,17 +353,12 @@
           height: 100%;
           background: #414FA3;
         }
-        .blog-post-thumbnail-img {
-          border: 1px solid #707070;
-          object-fit: cover;
-          width: 760px;
-        }
         .blog-post-item-body-wrapper h4 {
-          position: relative;
-          padding: 10px 0 10px 40px;
-          margin-left: -16px;
           font-size: 18px;
-          margin: 1em 5px;
+          font-weight: 600;
+          margin: 30px 15px 20px 15px;
+          padding: 10px 0 10px 25px;
+          position: relative;
         }
         .blog-post-item-body-wrapper h4:before {
           content: "";
@@ -372,6 +369,12 @@
           width: 6px;
           height: 100%;
           background: #414FA3;
+        }
+
+        .blog-post-thumbnail-img {
+          border: 1px solid #707070;
+          object-fit: cover;
+          width: 760px;
         }
         .blog-post-item-body-wrapper img {
           object-fit: cover;
@@ -1212,6 +1215,18 @@
           #comments {
             padding: 10px 0;
           }
+
+          /* 
+            レスポンシブル 本文
+          */
+          /* 見出し */
+          .blog-post-item-body-wrapper h2 {
+            padding: 10px 20px;
+          }
+          /* フレーム */
+          .blog-post-item-body-wrapper .frame-simple {
+            margin:2em 20px;
+          }
         }
 
         @media screen and (min-width: 360px) and (max-width: 479px)  {
@@ -1364,6 +1379,19 @@
           #comments {
             padding: 10px 0;
           }
+
+          /* 
+            レスポンシブル 本文
+          */
+          /* 見出し */
+          .blog-post-item-body-wrapper h2 {
+            padding: 10px 20px;
+          }
+          /* フレーム */
+          .blog-post-item-body-wrapper .frame-simple {
+            margin:2em 20px;
+          }
+
         }
 
         @media screen and (min-width: 320px)  and (max-width: 359px)  {
@@ -1508,6 +1536,18 @@
           #comments {
             padding: 10px 0;
           }
+
+          /* 
+            レスポンシブル 本文
+          */
+          /* 見出し */
+          .blog-post-item-body-wrapper h2 {
+            padding: 10px 20px;
+          }
+          /* フレーム */
+          .blog-post-item-body-wrapper .frame-simple {
+            margin: 2em 20px;
+          }
         }
       ]]></b:skin>
 
@@ -1596,7 +1636,7 @@
                 <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
-                <b:if cond='data:blog.pageType != &quot;item&quot;'>
+                <b:if cond='data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot;'>
                   <div class='featuredpost-title-inner'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div class='featuredpost-title-title-wrapper'>
@@ -1658,15 +1698,14 @@
                 <b:widget-setting name='showReactions'>false</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main' var='top'>
-                  <b:if cond='data:blog.pageType != &quot;item&quot;'>
-
-                  <div class='blog-inner'>
-                    <div class='blog-title-wrapper'><h2>最近の投稿</h2></div>
-                    <b:loop values='data:posts' var='post'>
-                      <b:include data='post' name='post'/>
-                    </b:loop>
-                    <b:include name='nextprev'/>
-                  </div>
+                  <b:if cond='data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot; '>
+                    <div class='blog-inner'>
+                      <div class='blog-title-wrapper'><h2>最近の投稿</h2></div>
+                      <b:loop values='data:posts' var='post'>
+                        <b:include data='post' name='post'/>
+                      </b:loop>
+                      <b:include name='nextprev'/>
+                    </div>
                 <b:else/>
                   <div class='blog-post-item-inner'>
                     <b:include data='data:posts[0]' name='post-item'/>
@@ -1832,7 +1871,7 @@
 
   </div>
 </b:includable>
-              <b:includable id='feedLinks'>
+<b:includable id='feedLinks'>
   <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
     <b:if cond='data:feedLinks'>
       <div class='blog-feeds'>
@@ -1848,7 +1887,7 @@
     </div>
   </b:if>
 </b:includable>
-              <b:includable id='feedLinksBody' var='links'>
+<b:includable id='feedLinksBody' var='links'>
   <div class='feed-links'>
   <data:feedLinksMsg/>
   <b:loop values='data:links' var='f'>
@@ -1856,54 +1895,13 @@
   </b:loop>
   </div>
 </b:includable>
-              <b:includable id='iframe_comments' var='post'>
-  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+<b:includable id='iframe_comments' var='post'>
 </b:includable>
-              <b:includable id='mobile-index-post' var='post'>
-  <div class='mobile-date-outer date-outer'>
-    <b:if cond='data:post.dateHeader'>
-      <div class='date-header'>
-        <span><data:post.dateHeader/></span>
-      </div>
-    </b:if>
-
-    <div class='mobile-post-outer'>
-      <a expr:href='data:post.url'>
-        <h3 class='mobile-index-title entry-title' itemprop='name'>
-          <data:post.title/>
-        </h3>
-
-        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
-
-        <div class='mobile-index-contents'>
-          <b:if cond='data:post.thumbnailUrl'>
-            <div class='mobile-index-thumbnail'>
-              <div class='Image'>
-                <img expr:src='data:post.thumbnailUrl'/>
-              </div>
-            </div>
-          </b:if>
-
-          <div class='post-body'>
-            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
-          </div>
-        </div>
-
-        <div style='clear: both;'/>
-      </a>
-
-      <div class='mobile-index-comment'>
-        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
-      </div>
-    </div>
-  </div>
-</b:includable>
-              <b:includable id='mobile-main' var='top'>
+<b:includable id='mobile-index-post' var='post'></b:includable>
+<b:includable id='mobile-main' var='top'>
     <!-- posts -->
     <div class='blog-posts hfeed'>
-
       <b:include data='top' name='status-message'/>
-
       <b:if cond='data:blog.pageType == &quot;index&quot;'>
         <b:loop values='data:posts' var='post'>
           <b:include data='post' name='mobile-index-post'/>
@@ -1914,35 +1912,11 @@
         </b:loop>
       </b:if>
     </div>
-
-   <b:include name='mobile-nextprev'/>
+<b:include name='mobile-nextprev'/>
 </b:includable>
-              <b:includable id='mobile-nextprev'>
-  <div class='blog-pager' id='blog-pager'>
-    <b:if cond='data:newerPageUrl'>
-      <div class='mobile-link-button' id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
-      </div>
-    </b:if>
-
-    <b:if cond='data:olderPageUrl'>
-      <div class='mobile-link-button' id='blog-pager-older-link'>
-      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
-      </div>
-    </b:if>
-
-    <div class='mobile-link-button' id='blog-pager-home-link'>
-    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-    </div>
-
-    <div class='mobile-desktop-link'>
-      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
-    </div>
-
-  </div>
-  <div class='clear'/>
+<b:includable id='mobile-nextprev'>
 </b:includable>
-              <b:includable id='mobile-post' var='post'>
+<b:includable id='mobile-post' var='post'>
   <div class='date-outer'>
     <b:if cond='data:post.dateHeader'>
       <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
