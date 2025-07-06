@@ -13,3 +13,7 @@ Google Blogger のテンプレートです。
 ## デモ
 
 https://blogstart40.blogspot.com/
+
+## ライセンス
+
+このプロジェクトは [MIT License](LICENSE) の下で公開されています。
