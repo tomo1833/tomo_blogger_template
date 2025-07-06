@@ -1551,9 +1551,9 @@
         }
       ]]></b:skin>
 
-      <script async='async' src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian'/>
+      <script async='async' src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian' integrity='sha384-PLACEHOLDER' crossorigin='anonymous'/>
 
-    <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2348922508571726'/>
+    <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2348922508571726' integrity='sha384-PLACEHOLDER'/>
     
     </head>
     <body>
@@ -2618,7 +2618,7 @@
           </div>
           <div class='twitter-contents-wrapper'>
             <a class='twitter-timeline' data-height='500' data-lang='ja' data-width='500' href='https://twitter.com/tomo_it_engr?ref_src=twsrc%5Etfw'>Tweets by tomo_it_engr</a>
-            <script async='async' charset='utf-8' src='https://platform.twitter.com/widgets.js'/>
+            <script async='async' charset='utf-8' src='https://platform.twitter.com/widgets.js' integrity='sha384-PLACEHOLDER' crossorigin='anonymous'/>
           </div>
         </div>
       </div>
