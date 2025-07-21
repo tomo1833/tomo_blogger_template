@@ -1733,9 +1733,8 @@
           }
         }
       ]]></b:skin>
-
-
     <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxx'/>
+
     
     <!-- Google tag (gtag.js) -->
     <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxxx'/>
@@ -2876,6 +2875,7 @@
                     <data:title/>
                   </h2>
                 </div>
+
               </b:if>
               <div class='blogasearch-contents-wrapper'>
                 <div class='widget-content'>
