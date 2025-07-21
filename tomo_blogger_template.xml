@@ -1549,6 +1549,38 @@
             margin: 2em 20px;
           }
         }
+
+        @media screen and (min-width: 2560px) {
+          nav,
+          main,
+          article,
+          iframe,
+          .featuredpost-article,
+          .blog-article,
+          .blog-post-item,
+          .popular-article,
+          .featuredpost-title-title-wrapper,
+          .featuredpost-thumbnail-top,
+          .featuredpost-thumbnail-img,
+          .blog-post-thumbnail-top,
+          .blog-post-thumbnail-img,
+          .thumbnail-main-img,
+          .blog-title-wrapper,
+          .blog-comment-title-wrapper,
+          .blog-post-item-body-wrapper img,
+          .profile-title-wrapper,
+          .contents-footer-item,
+          .popular-thumbnail-img {
+            width: 1200px;
+          }
+          .featuredpost-inner,
+          .blog-post-inner {
+            width: 1100px;
+          }
+          aside {
+            width: 480px;
+          }
+        }
       ]]></b:skin>
 
       <script async='async' src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian'/>
