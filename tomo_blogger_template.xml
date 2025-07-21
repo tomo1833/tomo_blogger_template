@@ -73,6 +73,8 @@
       }
       header {
         height: 75px;
+        animation: slideDown 0.6s ease-out;
+        animation-fill-mode: forwards;
       }
       nav {
         background-color: #414FA3;
@@ -1023,6 +1025,8 @@
 
         .ltr header {
           height: auto;
+          animation: slideDown 0.6s ease-out;
+          animation-fill-mode: forwards;
         }
         .ltr nav {
           height: auto;
@@ -1171,6 +1175,17 @@
             }
         }
 
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         @media screen and (min-width: 2500px) {
           body {
             font-family: 'BIZ UDGothic', 'UD Gothic', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
@@ -1240,6 +1255,8 @@
           }
           header {
             height: 50px;
+            animation: slideDown 0.6s ease-out;
+            animation-fill-mode: forwards;
           }
           .pagelist-ul li a {
             font-size: 12px;
@@ -1416,6 +1433,8 @@
           }
           header {
             height: 50px;
+            animation: slideDown 0.6s ease-out;
+            animation-fill-mode: forwards;
           }
           .pagelist-ul li a {
             font-size: 12px;
@@ -1597,6 +1616,8 @@
           }
           header {
             height: 50px;
+            animation: slideDown 0.6s ease-out;
+            animation-fill-mode: forwards;
           }
           .pagelist-ul li a {
             font-size: 12px;
