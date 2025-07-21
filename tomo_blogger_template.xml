@@ -1712,9 +1712,11 @@
           .profile-title-wrapper,
           .contents-footer-item,
           .popular-thumbnail-img {
-            width: 1200px;
+            width: 1600px;
           }
-
+          main {
+            max-width: 1600px;
+          }
           /* コメント */
           .comment-form {
             padding: 10px;
@@ -1723,9 +1725,8 @@
             width: 100%;
           }
           .table-of-contents {
-            margin 0;
+            margin: 0;
           }
-
           /* お勧めボックス */
           .recommended-box {
             margin: 20px;
