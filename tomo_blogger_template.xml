@@ -5,157 +5,156 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
     <link href='https://use.fontawesome.com/releases/v5.6.4/css/all.css' rel='stylesheet'/>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet" type="text/css"/>
 
-      <!-- CSS 設定 -->
-      <b:skin><![CDATA[
-        /** ******************** */
-        /** reset css            */
-        /** ******************** */
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
-        figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          font-size: 100%;
-          font: inherit;
-          vertical-align: baseline;
-        }
-        article, aside, details, figcaption, figure,
-        footer, header, hgroup, menu, nav, section {
-          display: block;
-        }
-        body {
-          line-height: 1;
-        }
-        ol, ul {
-          list-style: none;
-        }
-        blockquote, q {
-          quotes: none;
-        }
-        blockquote:before, blockquote:after, q:before, q:after {
-          content: '';
-          content: none;
-        }
-        table {
-          border-collapse: collapse;
-          border-spacing: 0;
-        }
+    <!-- CSS 設定 -->
+    <b:skin><![CDATA[
+      /** ******************** */
+      /** reset css            */
+      /** ******************** */
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      article, aside, details, figcaption, figure,
+      footer, header, hgroup, menu, nav, section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      blockquote, q {
+        quotes: none;
+      }
+      blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
 
-        /* =======================================
-        CSS
-         1. 共通
-         2. コンテナ
-         3. ヘッダー
-         4. ナビ
-         5. 注目の投稿
-         6. ブログ
-         7. 自己紹介
-         8. 人気
-         9. ラベル
-        10. アーカイブ
-        12. 検索
-        13. Twitter
-        14. フッター 
-        ======================================== */
-        /* -------------------------------------
-        1. 共通
-        ---------------------------------------- */
-        body {
-          background-color:$(body.background.color);
-          background-color: #f9f9fb;
-          color: #2b2b2b;
-        }
-        header {
-          height: 75px;
-        }
-        nav {
-          background-color: #414FA3;
-          height: 50px;
-          margin: 0 10px 10px 10px;
-        }
-        main {
-          max-width: 840px;
-          width: 100%;
-        }
-        article {
-          background-color: #ffffff;
-          width: 840px
-        }
-        aside {
-          margin: 0 0 0px 20px;
-          width: 380px;
-        }
-        footer {
-          background-color: #414FA3;
-          color: #ffffff;
-          height: 75px;
-          margin: 10px 0 0 0;
-        }
-        h2 {
-          font-weight: 600;
-        }
-
-        /* -------------------------------------
-        2. コンテナ
-        ---------------------------------------- */
-        .container-wrapper {
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: center;
-          margin: 20px 0 20px 0;
-        }
-        .contents-footer {
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: center;
-          margin: 0 20px 20px 20px;
-        }
-        .contents-footer-item {
-          width: 620px;
-          background-color: #414FA3;
-        }
-
-        /* -------------------------------------
-        3. ヘッダー
-        ---------------------------------------- */
-        #header-inner {
-          margin-inline-start: 20px;
-        }
-        .header-title-wrapper h1 {
-          color: #707070;
-          font-size: 40px;
-          line-height: 75px;
-          margin-block: 0;
-        }
-
-        /* -------------------------------------
-        4. ナビ
-        ---------------------------------------- */
-        .pageList-inner {
-        }
-        .pagelist-ul {
-          display  : flex;
-          justify-content: space-around;
-          margin-block: 0;
-          width: 100%;
-        }
-        .pagelist-ul li {
-          height: 50px;
-          list-style: none;
-        }
-        .pagelist-ul li a {
-          font-size: 25px;
-          line-height: 50px;
-          text-decoration: none;
-        }
-        .pagelist-ul li a:link,
-        .pagelist-ul li a:visited {
-          color: #ffffff;  }
+      /* ======================================= */
+      /* CSS                                     */
+      /*  1. 共通                                */
+      /*  2. コンテナ                            */
+      /*  3. ヘッダー                            */
+      /*  4. ナビ                                */
+      /*  5. 注目の投稿                          */ 
+      /*  6. ブログ                              */
+      /*  7. 自己紹介                            */
+      /*  8. 人気                                */ 
+      /*  9. ラベル                              */
+      /* 10. アーカイブ                          */
+      /* 12. 検索                                */
+      /* 13. Twitter                             */
+      /* 14. フッター                            */
+      /* ======================================= */
+      /* --------------------------------------- */
+      /* 1. 共通                                 */
+      /* --------------------------------------- */
+      body {
+        background-color:$(body.background.color);
+        background-color: #eceff1;
+        color: #2b2b2b;
+      }
+      header {
+        height: 75px;
+      }
+      nav {
+        background-color: #414FA3;
+        height: 50px;
+        margin: 0 10px 10px 10px;
+      }
+      main {
+        max-width: 840px;
+        width: 100%;
+      }
+      article {
+        background-color: #ffffff;
+        width: 840px
+      }
+      aside {
+        margin: 0 0 0px 20px;
+        width: 380px;
+      }
+      footer {
+        background-color: #414FA3;
+        color: #ffffff;
+        height: 75px;
+        margin: 10px 0 0 0;
+      }
+      h2 {
+        font-weight: 600;
+      }
+      /* --------------------------------------- */
+      /*  2. コンテナ                            */
+      /* --------------------------------------- */
+      .container-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin: 20px 0 20px 0;
+      }
+      .contents-footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin: 0 20px 20px 20px;
+      }
+      .contents-footer-item {
+        width: 620px;
+        background-color: #414FA3;
+      }
+      /* --------------------------------------- */
+      /*  3. ヘッダー                            */
+      /* --------------------------------------- */
+      #header-inner {
+        margin-inline-start: 20px;
+      }
+      .header-title-wrapper h1 {
+        color: #707070;
+        font-size: 40px;
+        line-height: 75px;
+        margin-block: 0;
+      }
+      /* --------------------------------------- */
+      /*  4. ナビ                                */
+      /* --------------------------------------- */
+      .pageList-inner {
+      }
+      .pagelist-ul {
+        display  : flex;
+        justify-content: space-around;
+        margin-block: 0;
+        width: 100%;
+      }
+      .pagelist-ul li {
+        height: 50px;
+        list-style: none;
+      }
+      .pagelist-ul li a {
+        font-size: 25px;
+        line-height: 50px;
+        text-decoration: none;
+      }
+      .pagelist-ul li a:link,
+      .pagelist-ul li a:visited {
+        color: #ffffff;
+      }
 
         /* -------------------------------------
          5. 注目の投稿
@@ -1172,6 +1171,45 @@
             }
         }
 
+        @media screen and (min-width: 2500px) {
+          body {
+            font-family: 'BIZ UDGothic', 'UD Gothic', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+          }
+          .featuredpost-snippet-wrapper,
+          .blog-post-snippet-wrapper,
+          .blog-post-item-body-wrapper p {
+            font-family: 'BIZ UDGothic', 'UD Gothic', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+          }
+          main,
+          article,
+          iframe,
+          .featuredpost-article,
+          .blog-article,
+          .blog-post-item,
+          .featuredpost-title-title-wrapper,
+          .featuredpost-thumbnail-top,
+          .blog-post-thumbnail-top,
+          .thumbnail-main-img,
+          .blog-title-wrapper,
+          .blog-comment-title-wrapper,
+          .blog-post-item-body-wrapper img,
+          .contents-footer-item {
+            width: 1600px;
+          }
+          main {
+            max-width: 1600px;
+          }
+          .featuredpost-thumbnail-top,
+          .blog-post-inner,
+          .featuredpost-inner {
+              width: 1520px;
+          }
+        }
+
         @media screen and (max-width: 480px) {
           nav,
           main,
@@ -1691,32 +1729,6 @@
             margin: 40px 20px;
           }
 
-        @media screen and (min-width: 2560px) {
-          nav,
-          main,
-          article,
-          iframe,
-          .featuredpost-article,
-          .blog-article,
-          .blog-post-item,
-          .popular-article,
-          .featuredpost-title-title-wrapper,
-          .featuredpost-thumbnail-top,
-          .featuredpost-thumbnail-img,
-          .blog-post-thumbnail-top,
-          .blog-post-thumbnail-img,
-          .thumbnail-main-img,
-          .blog-title-wrapper,
-          .blog-comment-title-wrapper,
-          .blog-post-item-body-wrapper img,
-          .profile-title-wrapper,
-          .contents-footer-item,
-          .popular-thumbnail-img {
-            width: 1600px;
-          }
-          main {
-            max-width: 1600px;
-          }
           /* コメント */
           .comment-form {
             padding: 10px;
@@ -1869,7 +1881,7 @@
                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
                       <div class='featuredpost-thumbnail-wrapper'>
                         <div class='featuredpost-thumbnail-top'>
-                          <img class='featuredpost-thumbnail-img' expr:src='data:postFirstImage' height='300' layout='responsive' width='800'/>
+                          <img class='featuredpost-thumbnail-img' expr:src='data:postFirstImage' layout='responsive' width='1520'/>
                         </div>
                       </div>
                     </b:if>
@@ -2281,7 +2293,7 @@
         </div>
         <div class='blog-post-thumbnail-wrapper'>
           <div class='blog-post-thumbnail-top'>
-            <img class='blog-post-thumbnail-img' expr:src='data:post.firstImageUrl' height='300' layout='responsive' width='800'/>
+            <img class='blog-post-thumbnail-img' expr:src='data:post.firstImageUrl' layout='responsive' width='1520'/>
           </div>
         </div>
         <div class='blog-post-snippet-wrapper'>
